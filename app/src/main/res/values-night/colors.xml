@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Primary Brand Colors (Vibrant Cyber Emerald Green in Dark Mode) -->
+	<color name="colorPrimary">#10B981</color>
+	<color name="colorPrimaryDark">#059669</color>
+	<color name="colorPrimaryLight">#064E3B</color>
+	<color name="colorAccent">#34D399</color>
+	<color name="colorAccentLight">#064E3B</color>
+	<color name="colorControlHighlight">#334155</color>
+	<color name="colorControlNormal">#10B981</color>
+
+	<!-- Neutral Palette (Dark Mode) -->
+	<color name="app_background">#0B1120</color>
+	<color name="card_background">#131D33</color>
+	<color name="card_stroke">#1E293B</color>
+	<color name="card_stroke_active">#10B981</color>
+	<color name="text_primary">#F8FAFC</color>
+	<color name="text_secondary">#94A3B8</color>
+	<color name="text_muted">#64748B</color>
+	<color name="input_background">#131D33</color>
+	<color name="divider_color">#1E293B</color>
+
+	<!-- Controls & Buttons (Dark Mode) -->
+	<color name="segmented_bg">#0F172A</color>
+	<color name="segmented_selected_bg">#1E293B</color>
+	<color name="segmented_stroke">#334155</color>
+	<color name="button_action_bg">#1E293B</color>
+	<color name="button_action_stroke">#334155</color>
+	<color name="icon_tint_primary">#F8FAFC</color>
+	<color name="icon_tint_secondary">#94A3B8</color>
+	<color name="icon_tint_custom">#34D399</color>
+	<color name="icon_badge_bg">#1E293B</color>
+	<color name="icon_badge_custom">#064E3B</color>
+
+	<!-- Status & Cipher Palette (Dark Mode) -->
+	<color name="color_success">#34D399</color>
+	<color name="color_success_bg">#06372A</color>
+	<color name="color_success_stroke">#065F46</color>
+	<color name="color_error">#F87171</color>
+	<color name="color_error_bg">#321317</color>
+	<color name="color_error_stroke">#7F1D1D</color>
+	<color name="color_warning">#FBBF24</color>
+	<color name="ciphertext_card_bg">#0B1120</color>
+	<color name="ciphertext_text">#F8FAFC</color>
+	<color name="ciphertext_stroke">#1E293B</color>
+	<color name="ciphertext_meta">#64748B</color>
+
+	<!-- Badges -->
+	<color name="badge_system_bg">#064E3B</color>
+	<color name="badge_system_stroke">#059669</color>
+	<color name="badge_system_text">#34D399</color>
+	<color name="badge_pwd_bg">#06372A</color>
+	<color name="badge_pwd_stroke">#065F46</color>
+	<color name="badge_pwd_text">#34D399</color>
+
+	<!-- Gradients (Logo Gradient: Emerald -> Cyan -> Royal Blue) -->
+	<color name="gradient_green_start">#00E676</color>
+	<color name="gradient_green_center">#00E5FF</color>
+	<color name="gradient_green_end">#2979FF</color>
+	<color name="gradient_glow_start">#00E676</color>
+	<color name="gradient_glow_center">#00E5FF</color>
+	<color name="gradient_glow_end">#2979FF</color>
+</resources>

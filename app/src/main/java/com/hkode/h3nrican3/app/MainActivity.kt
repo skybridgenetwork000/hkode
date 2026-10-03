@@ -1,5 +1,6 @@
 package com.hkode.h3nrican3.app
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.SparseBooleanArray
 import android.util.TypedValue
@@ -13,9 +14,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main)
-        initialize(savedInstanceState)
-        initializeLogic()
+        val splashIntent = Intent(this, SplashActivity::class.java).apply {
+            data = intent?.data
+            action = intent?.action
+            type = intent?.type
+            intent?.extras?.let { putExtras(it) }
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        startActivity(splashIntent)
+        finish()
     }
 
     private fun initialize(savedInstanceState: Bundle?) {}
@@ -24,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     @Deprecated("Sketchware helper method")
     fun showMessage(message: String) {
-        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+        CustomToast.showInfo(this, "Notice", message)
     }
 
     @Deprecated("Sketchware helper method")

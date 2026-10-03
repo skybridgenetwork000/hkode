@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/layout_settings_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/app_background"
+	android:orientation="vertical">
+
+	<!-- Top Navigation Header -->
+	<LinearLayout
+		android:id="@+id/header_settings"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingStart="20dp"
+		android:paddingEnd="20dp"
+		android:paddingTop="16dp"
+		android:paddingBottom="12dp"
+		android:gravity="center_vertical"
+		android:orientation="horizontal">
+
+		<FrameLayout
+			android:id="@+id/btn_back_settings"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:background="@drawable/bg_back_button"
+			android:clickable="true"
+			android:focusable="true">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_arrow_back"
+				app:tint="@color/icon_tint_primary"
+				android:contentDescription="Back" />
+		</FrameLayout>
+
+		<TextView
+			android:id="@+id/tv_settings_screen_title"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_marginStart="14dp"
+			android:text="Settings"
+			android:textSize="18sp"
+			android:textColor="@color/text_primary"
+			android:textStyle="bold" />
+
+		<View
+			android:layout_width="40dp"
+			android:layout_height="40dp" />
+	</LinearLayout>
+
+	<!-- Settings Content Body -->
+	<androidx.core.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:fillViewport="true"
+		android:overScrollMode="never">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingStart="20dp"
+			android:paddingEnd="20dp"
+			android:paddingTop="12dp"
+			android:paddingBottom="36dp">
+
+			<!-- SECTION 1: APPEARANCE -->
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Appearance"
+				android:textSize="13sp"
+				android:textStyle="bold"
+				android:textColor="@color/text_secondary" />
+
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/card_settings_theme"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="16dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Theme"
+						android:textSize="14sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="2dp"
+						android:text="Choose how Hkode looks on your device."
+						android:textSize="12sp"
+						android:textColor="@color/text_secondary" />
+
+					<!-- 3-option Segmented Selector [ System | Light | Dark ] -->
+					<LinearLayout
+						android:id="@+id/segmented_theme"
+						android:layout_width="match_parent"
+						android:layout_height="44dp"
+						android:layout_marginTop="12dp"
+						android:background="@drawable/bg_segmented_container"
+						android:orientation="horizontal">
+
+						<TextView
+							android:id="@+id/tab_theme_system"
+							android:layout_width="0dp"
+							android:layout_height="match_parent"
+							android:layout_weight="1"
+							android:background="@drawable/bg_segmented_selected"
+							android:gravity="center"
+							android:text="System"
+							android:textColor="@color/colorPrimary"
+							android:textSize="13sp"
+							android:textStyle="bold" />
+
+						<TextView
+							android:id="@+id/tab_theme_light"
+							android:layout_width="0dp"
+							android:layout_height="match_parent"
+							android:layout_weight="1"
+							android:gravity="center"
+							android:text="Light"
+							android:textColor="@color/text_secondary"
+							android:textSize="13sp" />
+
+						<TextView
+							android:id="@+id/tab_theme_dark"
+							android:layout_width="0dp"
+							android:layout_height="match_parent"
+							android:layout_weight="1"
+							android:gravity="center"
+							android:text="Dark"
+							android:textColor="@color/text_secondary"
+							android:textSize="13sp" />
+					</LinearLayout>
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- SECTION 2: SECURITY & PASSWORDS -->
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="24dp"
+				android:text="Security &amp; Passwords"
+				android:textSize="13sp"
+				android:textStyle="bold"
+				android:textColor="@color/text_secondary" />
+
+			<!-- Card: Consolidated Security & Biometrics Container -->
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/card_settings_security"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:clickable="true"
+				android:focusable="true"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background"
+				app:rippleColor="#1A05B859">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:orientation="horizontal"
+					android:padding="16dp">
+
+					<FrameLayout
+						android:layout_width="42dp"
+						android:layout_height="42dp"
+						android:background="@drawable/bg_icon_badge_indigo">
+
+						<ImageView
+							android:layout_width="22dp"
+							android:layout_height="22dp"
+							android:layout_gravity="center"
+							android:src="@drawable/ic_fingerprint"
+							app:tint="@color/colorPrimary"
+							android:contentDescription="Security and Biometrics" />
+					</FrameLayout>
+
+					<LinearLayout
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:layout_marginStart="14dp"
+						android:orientation="vertical">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Security &amp; Biometrics"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="@color/text_primary" />
+
+						<TextView
+							android:id="@+id/tv_settings_security_subtitle"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="2dp"
+							android:text="Passcode, fingerprint unlock &amp; auto-lock setup"
+							android:textSize="12sp"
+							android:textColor="@color/text_secondary" />
+					</LinearLayout>
+
+					<ImageView
+						android:layout_width="16dp"
+						android:layout_height="16dp"
+						android:src="@drawable/ic_chevron_right"
+						app:tint="@color/text_muted"
+						android:contentDescription="Open" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Card: Saved Passwords Manager -->
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/card_settings_saved_passwords"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:clickable="true"
+				android:focusable="true"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background"
+				app:rippleColor="#1A05B859">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:orientation="horizontal"
+					android:padding="16dp">
+
+					<FrameLayout
+						android:layout_width="42dp"
+						android:layout_height="42dp"
+						android:background="@drawable/bg_icon_badge_blue">
+
+						<ImageView
+							android:layout_width="22dp"
+							android:layout_height="22dp"
+							android:layout_gravity="center"
+							android:src="@drawable/ic_key"
+							app:tint="@color/colorPrimary"
+							android:contentDescription="Key" />
+					</FrameLayout>
+
+					<LinearLayout
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:layout_marginStart="14dp"
+						android:orientation="vertical">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Saved Secret Keys"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="@color/text_primary" />
+
+						<TextView
+							android:id="@+id/tv_saved_passwords_subtitle"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="2dp"
+							android:text="Manage your encryption keys for quick autofill"
+							android:textSize="12sp"
+							android:textColor="@color/text_secondary" />
+					</LinearLayout>
+
+					<ImageView
+						android:layout_width="16dp"
+						android:layout_height="16dp"
+						android:src="@drawable/ic_chevron_right"
+						app:tint="@color/text_muted"
+						android:contentDescription="Open" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- SECTION 3: NOTIFICATIONS -->
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="24dp"
+				android:text="Notifications"
+				android:textSize="13sp"
+				android:textStyle="bold"
+				android:textColor="@color/text_secondary" />
+
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/card_settings_notifications"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:orientation="horizontal"
+					android:padding="16dp">
+
+					<LinearLayout
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:orientation="vertical">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Security Reminders"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="@color/text_primary" />
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="2dp"
+							android:text="Periodic reminders to protect and decrypt messages."
+							android:textSize="12sp"
+							android:textColor="@color/text_secondary" />
+					</LinearLayout>
+
+					<com.google.android.material.switchmaterial.SwitchMaterial
+						android:id="@+id/switch_notifications"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="8dp"
+						android:track="@drawable/bg_m3_switch_track"
+						android:thumb="@drawable/bg_m3_switch_thumb"
+						app:useMaterialThemeColors="false"
+						app:trackTint="@null"
+						app:thumbTint="@null" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- SECTION 4: INFORMATION (Terms & About Us only, Privacy Policy removed) -->
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="24dp"
+				android:text="Information"
+				android:textSize="13sp"
+				android:textStyle="bold"
+				android:textColor="@color/text_secondary" />
+
+			<!-- Card: About Hkode -->
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/card_settings_about"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:clickable="true"
+				android:focusable="true"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background"
+				app:rippleColor="#1A05B859">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:orientation="horizontal"
+					android:padding="16dp">
+
+					<LinearLayout
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:orientation="vertical">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="About Hkode"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="@color/text_primary" />
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="2dp"
+							android:text="Detailed cryptographic architecture, security &amp; version"
+							android:textSize="12sp"
+							android:textColor="@color/text_secondary" />
+					</LinearLayout>
+
+					<ImageView
+						android:layout_width="16dp"
+						android:layout_height="16dp"
+						android:src="@drawable/ic_chevron_right"
+						app:tint="@color/text_muted"
+						android:contentDescription="Open about" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Card: Terms & Conditions -->
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/card_settings_terms"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:clickable="true"
+				android:focusable="true"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background"
+				app:rippleColor="#1A05B859">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:orientation="horizontal"
+					android:padding="16dp">
+
+					<LinearLayout
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:orientation="vertical">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Terms &amp; Conditions"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="@color/text_primary" />
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="2dp"
+							android:text="Zero-knowledge guidelines, limitations &amp; user responsibility"
+							android:textSize="12sp"
+							android:textColor="@color/text_secondary" />
+					</LinearLayout>
+
+					<ImageView
+						android:layout_width="16dp"
+						android:layout_height="16dp"
+						android:src="@drawable/ic_chevron_right"
+						app:tint="@color/text_muted"
+						android:contentDescription="Open terms" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- SECTION 5: DATA & STORAGE -->
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="24dp"
+				android:text="Data"
+				android:textSize="13sp"
+				android:textStyle="bold"
+				android:textColor="@color/text_secondary" />
+
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/card_settings_clear_data"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:clickable="true"
+				android:focusable="true"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background"
+				app:rippleColor="#0FEF4444">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:orientation="horizontal"
+					android:padding="16dp">
+
+					<LinearLayout
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:orientation="vertical">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Clear App Data"
+							android:textSize="14sp"
+							android:textStyle="bold"
+							android:textColor="@color/color_error" />
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="2dp"
+							android:text="Remove saved history and reset preferences"
+							android:textSize="12sp"
+							android:textColor="@color/text_secondary" />
+					</LinearLayout>
+
+					<ImageView
+						android:layout_width="16dp"
+						android:layout_height="16dp"
+						android:src="@drawable/ic_chevron_right"
+						app:tint="@color/text_muted"
+						android:contentDescription="Clear data" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

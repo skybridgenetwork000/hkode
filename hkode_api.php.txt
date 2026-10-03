@@ -1,0 +1,188 @@
+<?php
+/**
+ * crypto_api.php
+ * ---------------------------------------------------------
+ * A single, stateless PHP endpoint for encrypting/decrypting
+ * text messages. No database — everything needed to decrypt
+ * (salt/iv/tag) travels inside the output string itself,
+ * except in "system" mode where the key lives on the server.
+ *
+ * Cipher: AES-256-GCM (authenticated encryption — tampering
+ * with the ciphertext is detected, not just decrypted wrong).
+ * Key derivation (password mode): PBKDF2-SHA256, 100,000 rounds.
+ *
+ * ---------------------------------------------------------
+ * SETUP — before hosting this file:
+ * 1. Change SYSTEM_SECRET_KEY below to your own random 32+ char
+ *    string (or better, set it via environment variable).
+ * 2. Serve over HTTPS only. Sending passwords/plaintext over
+ *    plain HTTP defeats the purpose.
+ * ---------------------------------------------------------
+ *
+ * REQUEST (POST, application/x-www-form-urlencoded or JSON):
+ *   action   = "encrypt" | "decrypt"        (required)
+ *   mode     = "password" | "system"        (required)
+ *   message  = string                        (required)
+ *              - for encrypt: the plaintext, or the ciphertext
+ *                to decrypt (same field name either way)
+ *   password = string                        (required if mode=password)
+ *
+ * RESPONSE (JSON):
+ *   { "success": true,  "data": "..." }
+ *   { "success": false, "error": "..." }
+ */
+
+header('Content-Type: application/json');
+
+// ===========================================================
+// CONFIG — change this before you host it.
+// ===========================================================
+define('SYSTEM_SECRET_KEY', getenv('CRYPTO_SYSTEM_KEY') ?: 'CHANGE-THIS-TO-A-LONG-RANDOM-SECRET-STRING-0000');
+
+const CIPHER      = 'aes-256-gcm';
+const PBKDF2_ITER = 100000;
+const KEY_LEN     = 32; // 256-bit key
+const SALT_LEN    = 16;
+const TAG_LEN     = 16;
+
+// ===========================================================
+// Helpers
+// ===========================================================
+
+function fail(string $msg, int $code = 400): void {
+    http_response_code($code);
+    echo json_encode(['success' => false, 'error' => $msg]);
+    exit;
+}
+
+function ok($data): void {
+    echo json_encode(['success' => true, 'data' => $data]);
+    exit;
+}
+
+/**
+ * Derive a 256-bit key from a password + salt via PBKDF2.
+ */
+function deriveKey(string $password, string $salt): string {
+    return hash_pbkdf2('sha256', $password, $salt, PBKDF2_ITER, KEY_LEN, true);
+}
+
+/**
+ * Derive the fixed "system" key once, from the server secret.
+ * A static salt is fine here because the key itself never
+ * leaves the server and never appears in the output.
+ */
+function systemKey(): string {
+    return deriveKey(SYSTEM_SECRET_KEY, 'static-system-salt-v1');
+}
+
+/**
+ * Package: base64( salt(16) . iv(12) . tag(16) . ciphertext )
+ * Password mode includes the salt (needed since key is derived
+ * fresh from the password each time). System mode omits the
+ * salt (key is fixed, derived once from the server secret) to
+ * keep the token slightly smaller — iv+tag+ciphertext only.
+ */
+function encryptPassword(string $plaintext, string $password): string {
+    $salt = random_bytes(SALT_LEN);
+    $key  = deriveKey($password, $salt);
+    $iv   = random_bytes(openssl_cipher_iv_length(CIPHER));
+    $tag  = '';
+    $ciphertext = openssl_encrypt($plaintext, CIPHER, $key, OPENSSL_RAW_DATA, $iv, $tag, '', TAG_LEN);
+    if ($ciphertext === false) fail('Encryption failed', 500);
+    return base64_encode($salt . $iv . $tag . $ciphertext);
+}
+
+function decryptPassword(string $packaged, string $password): string {
+    $raw = base64_decode($packaged, true);
+    if ($raw === false) fail('Invalid message format');
+
+    $ivLen = openssl_cipher_iv_length(CIPHER);
+    $minLen = SALT_LEN + $ivLen + TAG_LEN;
+    if (strlen($raw) <= $minLen) fail('Invalid message format');
+
+    $salt       = substr($raw, 0, SALT_LEN);
+    $iv         = substr($raw, SALT_LEN, $ivLen);
+    $tag        = substr($raw, SALT_LEN + $ivLen, TAG_LEN);
+    $ciphertext = substr($raw, SALT_LEN + $ivLen + TAG_LEN);
+
+    $key = deriveKey($password, $salt);
+    $plaintext = openssl_decrypt($ciphertext, CIPHER, $key, OPENSSL_RAW_DATA, $iv, $tag);
+    if ($plaintext === false) fail('Decryption failed — wrong password or corrupted message');
+    return $plaintext;
+}
+
+function encryptSystem(string $plaintext): string {
+    $key  = systemKey();
+    $iv   = random_bytes(openssl_cipher_iv_length(CIPHER));
+    $tag  = '';
+    $ciphertext = openssl_encrypt($plaintext, CIPHER, $key, OPENSSL_RAW_DATA, $iv, $tag, '', TAG_LEN);
+    if ($ciphertext === false) fail('Encryption failed', 500);
+    return base64_encode($iv . $tag . $ciphertext);
+}
+
+function decryptSystem(string $packaged): string {
+    $raw = base64_decode($packaged, true);
+    if ($raw === false) fail('Invalid message format');
+
+    $ivLen = openssl_cipher_iv_length(CIPHER);
+    $minLen = $ivLen + TAG_LEN;
+    if (strlen($raw) <= $minLen) fail('Invalid message format');
+
+    $iv         = substr($raw, 0, $ivLen);
+    $tag        = substr($raw, $ivLen, TAG_LEN);
+    $ciphertext = substr($raw, $ivLen + TAG_LEN);
+
+    $key = systemKey();
+    $plaintext = openssl_decrypt($ciphertext, CIPHER, $key, OPENSSL_RAW_DATA, $iv, $tag);
+    if ($plaintext === false) fail('Decryption failed — corrupted message or key changed');
+    return $plaintext;
+}
+
+// ===========================================================
+// Request handling
+// ===========================================================
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    fail('Only POST requests are accepted', 405);
+}
+
+// Accept both form-encoded and raw JSON bodies.
+$input = $_POST;
+if (empty($input)) {
+    $raw = file_get_contents('php://input');
+    $json = json_decode($raw, true);
+    if (is_array($json)) $input = $json;
+}
+
+$action   = $input['action']   ?? '';
+$mode     = $input['mode']     ?? '';
+$message  = $input['message']  ?? null;
+$password = $input['password'] ?? null;
+
+if (!in_array($action, ['encrypt', 'decrypt'], true)) {
+    fail('action must be "encrypt" or "decrypt"');
+}
+if (!in_array($mode, ['password', 'system'], true)) {
+    fail('mode must be "password" or "system"');
+}
+if ($message === null || $message === '') {
+    fail('message is required');
+}
+if ($mode === 'password' && (!$password || $password === '')) {
+    fail('password is required when mode=password');
+}
+
+if ($mode === 'password') {
+    if ($action === 'encrypt') {
+        ok(encryptPassword($message, $password));
+    } else {
+        ok(decryptPassword($message, $password));
+    }
+} else { // system
+    if ($action === 'encrypt') {
+        ok(encryptSystem($message));
+    } else {
+        ok(decryptSystem($message));
+    }
+}

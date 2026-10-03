@@ -1,3 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name" translatable="false">Hkode</string>
+	<string name="app_tagline">Message Encryption &amp; Privacy Utility</string>
+	<string name="tab_encrypt">Encrypt</string>
+	<string name="tab_decrypt">Decrypt</string>
+	<string name="tab_history">History</string>
+
+	<!-- Encrypt screen -->
+	<string name="encrypt_title">New Protected Message</string>
+	<string name="encrypt_subtitle">Encrypt your message before sending via SMS, chat, or email.</string>
+	<string name="mode_system_title">Hkode Secure</string>
+	<string name="mode_system_desc">Simple protection using Hkode\'s secure system.</string>
+	<string name="mode_password_title">Custom Password</string>
+	<string name="mode_password_desc">Protect this message with a password that the recipient must know.</string>
+	<string name="input_message_hint">Type or paste the message you want to protect…</string>
+	<string name="input_password_hint">Enter a secret passphrase</string>
+	<string name="btn_encrypt">Encrypt Message</string>
+	<string name="btn_encrypt_loading">Encrypting message…</string>
+
+	<!-- Decrypt screen -->
+	<string name="decrypt_title">Unlock Message</string>
+	<string name="decrypt_subtitle">Paste an Hkode encrypted message to decrypt back to plaintext.</string>
+	<string name="decrypt_mode_system_desc">Decrypted using Hkode\'s secure system.</string>
+	<string name="decrypt_mode_password_desc">Requires the password set during encryption.</string>
+	<string name="input_ciphertext_hint">Paste the encrypted Hkode ciphertext here…</string>
+	<string name="input_decrypt_password_hint">Enter the password used to encrypt</string>
+	<string name="btn_decrypt">Decrypt &amp; Unlock</string>
+	<string name="btn_decrypt_loading">Decrypting message…</string>
+
+	<!-- Common Actions -->
+	<string name="action_copy">Copy</string>
+	<string name="action_copied">Copied to clipboard</string>
+	<string name="action_share">Share</string>
+	<string name="action_clear">Clear</string>
+	<string name="action_paste">Paste</string>
+	<string name="action_new">Start New</string>
+	<string name="action_retry">Try Again</string>
+
+	<!-- History -->
+	<string name="history_title">Recent Messages</string>
+	<string name="history_subtitle">Locally stored operations for quick reference.</string>
+	<string name="history_empty_title">No messages yet</string>
+	<string name="history_empty_desc">Messages you encrypt or decrypt will appear here. No data leaves your device.</string>
+	<string name="action_clear_history">Clear History</string>
+
+	<!-- About Dialog -->
+	<string name="about_title">About Hkode Security</string>
+	<string name="security_specs">AES-256-GCM • PBKDF2-SHA256 (100k rounds) • Tamper-proof</string>
 </resources>

@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hkode.h3nrican3.app",
+      "sha256_cert_fingerprints": [
+        "10:48:8A:28:C2:5E:F6:A3:E8:4A:28:9B:4C:E8:F2:1A:05:88:94:02:C7:E2:4C:1A:92:4A:D2:02:88:84:02:C7",
+        "REPLACE_WITH_YOUR_RELEASE_KEYSTORE_SHA256"
+      ]
+    }
+  }
+]

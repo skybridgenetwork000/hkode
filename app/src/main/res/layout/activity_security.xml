@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/layout_security_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/app_background"
+	android:orientation="vertical">
+
+	<!-- Header Bar -->
+	<LinearLayout
+		android:id="@+id/header_security"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingStart="20dp"
+		android:paddingEnd="20dp"
+		android:paddingTop="16dp"
+		android:paddingBottom="12dp"
+		android:gravity="center_vertical"
+		android:orientation="horizontal">
+
+		<FrameLayout
+			android:id="@+id/btn_back_security"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:background="@drawable/bg_back_button"
+			android:clickable="true"
+			android:focusable="true">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_arrow_back"
+				app:tint="@color/icon_tint_primary"
+				android:contentDescription="Back" />
+		</FrameLayout>
+
+		<TextView
+			android:id="@+id/tv_security_screen_title"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_marginStart="14dp"
+			android:text="Security &amp; Biometrics"
+			android:textSize="18sp"
+			android:textColor="@color/text_primary"
+			android:textStyle="bold" />
+
+		<View
+			android:layout_width="40dp"
+			android:layout_height="40dp" />
+	</LinearLayout>
+
+	<!-- Security Settings Content -->
+	<androidx.core.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:fillViewport="true"
+		android:overScrollMode="never">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingStart="20dp"
+			android:paddingEnd="20dp"
+			android:paddingTop="12dp"
+			android:paddingBottom="36dp">
+
+			<!-- SECTION 1: PASSCODE & BIOMETRICS -->
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Authentication"
+				android:textSize="13sp"
+				android:textStyle="bold"
+				android:textColor="@color/text_secondary" />
+
+			<!-- Card: Passcode & Biometrics Settings -->
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/card_security_auth"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+
+					<!-- Row: App Passcode Toggle -->
+					<LinearLayout
+						android:id="@+id/row_security_passcode"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:padding="16dp">
+
+						<FrameLayout
+							android:layout_width="42dp"
+							android:layout_height="42dp"
+							android:background="@drawable/bg_icon_badge_blue">
+
+							<ImageView
+								android:layout_width="22dp"
+								android:layout_height="22dp"
+								android:layout_gravity="center"
+								android:src="@drawable/ic_lock"
+								app:tint="@color/colorPrimary"
+								android:contentDescription="Lock" />
+						</FrameLayout>
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_marginStart="14dp"
+							android:orientation="vertical">
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="App Passcode"
+								android:textSize="14sp"
+								android:textStyle="bold"
+								android:textColor="@color/text_primary" />
+
+							<TextView
+								android:id="@+id/tv_security_passcode_subtitle"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="2dp"
+								android:text="Require 4-digit PIN to open Hkode"
+								android:textSize="12sp"
+								android:textColor="@color/text_secondary" />
+						</LinearLayout>
+
+						<com.google.android.material.switchmaterial.SwitchMaterial
+							android:id="@+id/switch_security_passcode"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:track="@drawable/bg_m3_switch_track"
+							android:thumb="@drawable/bg_m3_switch_thumb"
+							app:useMaterialThemeColors="false"
+							app:trackTint="@null"
+							app:thumbTint="@null" />
+					</LinearLayout>
+
+					<!-- Divider -->
+					<View
+						android:id="@+id/divider_security_change_passcode"
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginStart="72dp"
+						android:background="@color/card_stroke" />
+
+					<!-- Row: Change Passcode (Visible when passcode enabled) -->
+					<LinearLayout
+						android:id="@+id/row_security_change_passcode"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:clickable="true"
+						android:focusable="true"
+						android:background="?attr/selectableItemBackground"
+						android:padding="16dp">
+
+						<FrameLayout
+							android:layout_width="42dp"
+							android:layout_height="42dp"
+							android:background="@drawable/bg_icon_badge_green">
+
+							<ImageView
+								android:layout_width="22dp"
+								android:layout_height="22dp"
+								android:layout_gravity="center"
+								android:src="@drawable/ic_shield_check"
+								app:tint="@color/color_success"
+								android:contentDescription="Change" />
+						</FrameLayout>
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_marginStart="14dp"
+							android:orientation="vertical">
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Change Passcode"
+								android:textSize="14sp"
+								android:textStyle="bold"
+								android:textColor="@color/text_primary" />
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="2dp"
+								android:text="Update your 4-digit PIN"
+								android:textSize="12sp"
+								android:textColor="@color/text_secondary" />
+						</LinearLayout>
+
+						<ImageView
+							android:layout_width="16dp"
+							android:layout_height="16dp"
+							android:src="@drawable/ic_chevron_right"
+							app:tint="@color/text_muted"
+							android:contentDescription="Open" />
+					</LinearLayout>
+
+					<!-- Divider -->
+					<View
+						android:id="@+id/divider_security_questions"
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginStart="72dp"
+						android:background="@color/card_stroke" />
+
+					<!-- Row: Security Questions (Visible when passcode enabled) -->
+					<LinearLayout
+						android:id="@+id/row_security_questions"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:clickable="true"
+						android:focusable="true"
+						android:background="?attr/selectableItemBackground"
+						android:padding="16dp">
+
+						<FrameLayout
+							android:layout_width="42dp"
+							android:layout_height="42dp"
+							android:background="@drawable/bg_icon_badge_blue">
+
+							<ImageView
+								android:layout_width="22dp"
+								android:layout_height="22dp"
+								android:layout_gravity="center"
+								android:src="@drawable/ic_key"
+								app:tint="@color/colorPrimary"
+								android:contentDescription="Security Questions" />
+						</FrameLayout>
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_marginStart="14dp"
+							android:orientation="vertical">
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Security Questions"
+								android:textSize="14sp"
+								android:textStyle="bold"
+								android:textColor="@color/text_primary" />
+
+							<TextView
+								android:id="@+id/tv_security_questions_subtitle"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="2dp"
+								android:text="2 questions configured for recovery"
+								android:textSize="12sp"
+								android:textColor="@color/text_secondary" />
+						</LinearLayout>
+
+						<ImageView
+							android:layout_width="16dp"
+							android:layout_height="16dp"
+							android:src="@drawable/ic_chevron_right"
+							app:tint="@color/text_muted"
+							android:contentDescription="Open" />
+					</LinearLayout>
+
+					<!-- Divider -->
+					<View
+						android:id="@+id/divider_security_biometric"
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginStart="72dp"
+						android:background="@color/card_stroke" />
+
+					<!-- Row: Biometric Unlock (Fingerprint) -->
+					<LinearLayout
+						android:id="@+id/row_security_biometric"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:padding="16dp">
+
+						<FrameLayout
+							android:layout_width="42dp"
+							android:layout_height="42dp"
+							android:background="@drawable/bg_icon_badge_indigo">
+
+							<ImageView
+								android:id="@+id/iv_security_fingerprint_icon"
+								android:layout_width="24dp"
+								android:layout_height="24dp"
+								android:layout_gravity="center"
+								android:src="@drawable/ic_fingerprint"
+								app:tint="@color/colorPrimary"
+								android:contentDescription="Fingerprint" />
+						</FrameLayout>
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_marginStart="14dp"
+							android:orientation="vertical">
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Biometric / Fingerprint Unlock"
+								android:textSize="14sp"
+								android:textStyle="bold"
+								android:textColor="@color/text_primary" />
+
+							<TextView
+								android:id="@+id/tv_security_biometric_subtitle"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="2dp"
+								android:text="Unlock instantly with fingerprint"
+								android:textSize="12sp"
+								android:textColor="@color/text_secondary" />
+						</LinearLayout>
+
+						<com.google.android.material.switchmaterial.SwitchMaterial
+							android:id="@+id/switch_security_biometric"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:track="@drawable/bg_m3_switch_track"
+							android:thumb="@drawable/bg_m3_switch_thumb"
+							app:useMaterialThemeColors="false"
+							app:trackTint="@null"
+							app:thumbTint="@null" />
+					</LinearLayout>
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- SECTION 2: PASSCODE SETUP & LOCK TIMING -->
+			<TextView
+				android:id="@+id/tv_header_lock_setup"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="24dp"
+				android:text="Setup for Passcode Lock"
+				android:textSize="13sp"
+				android:textStyle="bold"
+				android:textColor="@color/text_secondary" />
+
+			<TextView
+				android:id="@+id/tv_header_lock_setup_sub"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="4dp"
+				android:text="Configure when Hkode automatically locks after leaving the app."
+				android:textSize="12sp"
+				android:textColor="@color/text_muted" />
+
+			<!-- Card: Auto-Lock Options -->
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/card_security_timeout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+
+					<!-- Option 1: Immediately -->
+					<LinearLayout
+						android:id="@+id/row_timeout_immediately"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:clickable="true"
+						android:focusable="true"
+						android:background="?attr/selectableItemBackground"
+						android:padding="16dp">
+
+						<ImageView
+							android:id="@+id/iv_radio_immediately"
+							android:layout_width="22dp"
+							android:layout_height="22dp"
+							android:src="@drawable/ic_check"
+							app:tint="@color/colorPrimary"
+							android:contentDescription="Select" />
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_marginStart="14dp"
+							android:orientation="vertical">
+
+							<TextView
+								android:id="@+id/tv_title_timeout_immediately"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Immediately"
+								android:textSize="14sp"
+								android:textStyle="bold"
+								android:textColor="@color/text_primary" />
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="2dp"
+								android:text="Lock immediately whenever you leave Hkode"
+								android:textSize="12sp"
+								android:textColor="@color/text_secondary" />
+						</LinearLayout>
+					</LinearLayout>
+
+					<!-- Divider -->
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginStart="52dp"
+						android:background="@color/card_stroke" />
+
+					<!-- Option 2: After 60 Seconds -->
+					<LinearLayout
+						android:id="@+id/row_timeout_60_seconds"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:clickable="true"
+						android:focusable="true"
+						android:background="?attr/selectableItemBackground"
+						android:padding="16dp">
+
+						<ImageView
+							android:id="@+id/iv_radio_60_seconds"
+							android:layout_width="22dp"
+							android:layout_height="22dp"
+							android:src="@drawable/ic_check"
+							app:tint="@color/colorPrimary"
+							android:contentDescription="Select" />
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_marginStart="14dp"
+							android:orientation="vertical">
+
+							<TextView
+								android:id="@+id/tv_title_timeout_60"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="After 60 seconds"
+								android:textSize="14sp"
+								android:textStyle="bold"
+								android:textColor="@color/text_primary" />
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="2dp"
+								android:text="Lock after 60 seconds in the background"
+								android:textSize="12sp"
+								android:textColor="@color/text_secondary" />
+						</LinearLayout>
+					</LinearLayout>
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Security Advice Banner -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="24dp"
+				android:background="@drawable/bg_icon_badge_blue"
+				android:orientation="horizontal"
+				android:padding="16dp"
+				android:gravity="center_vertical">
+
+				<ImageView
+					android:layout_width="22dp"
+					android:layout_height="22dp"
+					android:src="@drawable/ic_shield_check"
+					app:tint="@color/colorPrimary"
+					android:contentDescription="Security Info" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:layout_marginStart="12dp"
+					android:text="Your passcode and biometric secrets are salted and verified strictly inside your device's hardware security module."
+					android:textSize="12sp"
+					android:textColor="@color/text_secondary"
+					android:lineSpacingExtra="2dp" />
+			</LinearLayout>
+
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Gradient outer layer forming the curved top border -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners
+                android:topLeftRadius="28dp"
+                android:topRightRadius="28dp"
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="0dp" />
+            <gradient
+                android:startColor="@color/gradient_green_start"
+                android:centerColor="@color/gradient_green_center"
+                android:endColor="@color/gradient_green_end"
+                android:angle="0" />
+        </shape>
+    </item>
+
+    <!-- Inner surface offset down by 2.5dp so only the top curve displays the gradient stroke -->
+    <item
+        android:top="2.5dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <corners
+                android:topLeftRadius="25.5dp"
+                android:topRightRadius="25.5dp"
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="0dp" />
+            <solid android:color="@color/card_background" />
+        </shape>
+    </item>
+</layer-list>

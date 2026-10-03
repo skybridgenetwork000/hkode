@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Checked State: Button Gradient Track -->
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="16dp" />
+            <gradient
+                android:startColor="@color/gradient_green_start"
+                android:centerColor="@color/gradient_green_center"
+                android:endColor="@color/gradient_green_end"
+                android:angle="0" />
+            <size android:width="52dp" android:height="32dp" />
+        </shape>
+    </item>
+
+    <!-- Unchecked State: Dark Muted Outline Track -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="16dp" />
+            <solid android:color="#1F2430" />
+            <stroke
+                android:width="1.5dp"
+                android:color="#3F4658" />
+            <size android:width="52dp" android:height="32dp" />
+        </shape>
+    </item>
+</selector>

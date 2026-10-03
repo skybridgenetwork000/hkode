@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "YOUR_APPLE_TEAM_ID.com.hkode.h3nrican3.app",
+        "paths": [
+          "/d*",
+          "/decrypt*"
+        ]
+      }
+    ]
+  }
+}

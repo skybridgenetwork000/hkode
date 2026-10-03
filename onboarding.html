@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Hkode - Sovereign Text Encryption &amp; Security</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #05B859;
+      --primary-glow: rgba(5, 184, 89, 0.25);
+      --primary-dark: #048741;
+      --bg: #0B1120;
+      --card-bg: #131D33;
+      --card-stroke: #1E293B;
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --cyan: #00E5FF;
+      --indigo: #6366F1;
+      --error: #EF4444;
+      --success: #10B981;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Cyber Glow Background */
+    .glow-orb {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(5, 184, 89, 0.15) 0%, rgba(0, 229, 255, 0.05) 50%, transparent 70%);
+      filter: blur(50px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .orb-1 { top: -100px; left: -100px; }
+    .orb-2 { bottom: -100px; right: -100px; background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%); }
+
+    .onboarding-container {
+      width: 100%;
+      max-width: 480px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-stroke);
+      border-radius: 28px;
+      padding: 32px 24px 28px;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5), 0 0 30px 0 rgba(5, 184, 89, 0.08);
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    /* Top Navigation Bar */
+    .top-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .brand-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .brand-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--primary);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .skip-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+    .skip-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* Carousel Slides Container */
+    .slides-wrapper {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      min-height: 380px;
+    }
+
+    .slide {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transform: translateX(50px) scale(0.96);
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      position: relative;
+      pointer-events: auto;
+    }
+
+    /* Graphic Hero Illustration Box */
+    .hero-box {
+      width: 130px;
+      height: 130px;
+      background: linear-gradient(135deg, rgba(5, 184, 89, 0.12), rgba(0, 229, 255, 0.08));
+      border: 1px solid rgba(5, 184, 89, 0.25);
+      border-radius: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 24px -8px var(--primary-glow);
+      position: relative;
+    }
+
+    .hero-icon {
+      width: 64px;
+      height: 64px;
+      color: var(--primary);
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: -10px;
+      background: #0B1120;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Typography */
+    .slide-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .slide-description {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      padding: 0 10px;
+    }
+
+    /* Key Spec Chips */
+    .spec-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .chip {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-stroke);
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chip-icon {
+      width: 14px;
+      height: 14px;
+      color: var(--primary);
+    }
+
+    /* Pagination Indicator Dots */
+    .dots-container {
+      display: flex;
+      gap: 8px;
+      margin: 20px 0 24px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--card-stroke);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    .dot.active {
+      width: 28px;
+      border-radius: 6px;
+      background: var(--primary);
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    /* Action Buttons */
+    .action-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      width: 100%;
+      background: linear-gradient(90deg, #00E676 0%, #00E5FF 45%, #2979FF 100%);
+      color: #000000;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 15px 24px;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 8px 22px -4px rgba(0, 229, 255, 0.4);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px -6px rgba(5, 184, 89, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .btn-secondary {
+      width: 100%;
+      background: transparent;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 20px;
+      border-radius: 16px;
+      border: 1px solid var(--card-stroke);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--text-muted);
+    }
+
+    /* Interactive Live Crypto Preview */
+    .live-demo-card {
+      width: 100%;
+      background: #0B1120;
+      border: 1px solid var(--card-stroke);
+      border-radius: 16px;
+      padding: 14px;
+      margin-top: 14px;
+      text-align: left;
+    }
+
+    .demo-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .demo-output {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-primary);
+      background: rgba(255,255,255,0.02);
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px dashed var(--card-stroke);
+      word-break: break-all;
+      user-select: all;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <div class="onboarding-container">
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="brand-tag">
+        <div class="brand-dot"></div>
+        <span>Hkode Sovereign</span>
+      </div>
+      <button class="skip-btn" id="btnSkip" onclick="goToLastSlide()">Skip</button>
+    </div>
+
+    <!-- Slides Wrapper -->
+    <div class="slides-wrapper">
+
+      <!-- Slide 1: Military-Grade Dual Engine -->
+      <div class="slide active" id="slide-0">
+        <div class="hero-box">
+          <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <div class="hero-badge">AES-256-GCM</div>
+        </div>
+        <h2 class="slide-title">True Sovereign Text Confidentiality</h2>
+        <p class="slide-description">
+          Encrypt messages, sensitive notes, and code before they ever touch any transit network. Your text stays tamper-proof and strictly in your custody.
+        </p>
+        <div class="spec-chips">
+          <div class="chip">
+            <svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            128-bit Auth Tag
+          </div>
+          <div class="chip">
+            <svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+            100,000 PBKDF2 Rounds
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Zero-Knowledge Privacy -->
+      <div class="slide" id="slide-1">
+        <div class="hero-box">
+          <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <div class="hero-badge">100% OFFLINE</div>
+        </div>
+        <h2 class="slide-title">Zero-Knowledge Architecture</h2>
+        <p class="slide-description">
+          No trackers. No telemetry. No central database. Plaintext and passphrases never leave your device’s memory unencrypted.
+        </p>
+        <div class="spec-chips">
+          <div class="chip">Zero Telemetry</div>
+          <div class="chip">Local Encrypted Vault</div>
+          <div class="chip">Universal Text Share</div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Hardware Biometrics & Auto-Lock -->
+      <div class="slide" id="slide-2">
+        <div class="hero-box">
+          <!-- Official Material Fingerprint Icon -->
+          <svg class="hero-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.81 4.47c-.08 0-.16-.02-.23-.06C14.7 2.93 11.3 3.01 8.4 4.62c-.24.13-.54.05-.68-.19-.13-.24-.05-.54.19-.68 3.23-1.79 7.03-1.87 10.23-.23.24.12.33.42.21.66-.09.18-.26.29-.54.29zM2.08 9.75c-.19 0-.37-.11-.45-.29-.11-.25.01-.54.26-.65 3.01-1.32 6.55-1.97 10.11-1.81 3.56.16 6.96 1.13 9.87 2.81.23.13.31.43.18.67-.13.23-.43.31-.67.18-2.74-1.58-5.93-2.5-9.28-2.65-3.37-.16-6.72.45-9.58 1.7-.14.03-.29.04-.44.04zm10.74 3.79c-1.56-.77-2.82-1.96-3.66-3.46-.14-.24-.06-.54.18-.68.24-.14.54-.06.68.18.74 1.33 1.86 2.38 3.23 3.06.24.12.34.42.22.66-.1.2-.28.29-.51.29-.05 0-.1-.01-.14-.05zm-4.74 8.45c-.16 0-.32-.08-.42-.22-1.99-2.86-2.9-5.46-2.9-8.21 0-3.99 3.07-7.24 7.24-7.24s7.24 3.25 7.24 7.24c0 .28-.22.5-.5.5s-.5-.22-.5-.5c0-3.44-2.65-6.24-6.24-6.24s-6.24 2.8-6.24 6.24c0 2.49.83 4.84 2.65 7.45.16.23.1.55-.13.71-.06.05-.12.07-.16.07zm10.37-3.9c-.24 0-.46-.17-.49-.42-.39-3.21-2.09-5.99-4.78-7.81-.23-.15-.29-.46-.14-.69.15-.23.46-.29.69-.14 2.97 2.01 4.85 5.08 5.28 8.62.03.27-.16.51-.43.54h-.13zm-5.45 3.91c-.13 0-.26-.05-.35-.15-1.55-1.57-2.39-3.35-2.39-5.16 0-1.65 1.35-3 3-3s3 1.35 3 3c0 .28-.22.5-.5.5s-.5-.22-.5-.5c0-1.1-.9-2-2-2s-2 .9-2 2c0 1.5.72 3.01 2.09 4.39.2.2.19.51 0 .71-.1.1-.22.15-.35.15z"/>
+          </svg>
+          <div class="hero-badge">BIOMETRIC READY</div>
+        </div>
+        <h2 class="slide-title">Hardware Biometrics &amp; Passcode</h2>
+        <p class="slide-description">
+          Secure the app with your salted 4-digit PIN and fingerprint. Configure instant locking or a 60-second background grace timer in Security settings.
+        </p>
+        <div class="spec-chips">
+          <div class="chip">Immediate Lock</div>
+          <div class="chip">60s Background Timer</div>
+          <div class="chip">Salted PIN Hash</div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Ready & Download -->
+      <div class="slide" id="slide-3">
+        <div class="hero-box">
+          <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <div class="hero-badge">READY</div>
+        </div>
+        <h2 class="slide-title">You Are Ready to Secure</h2>
+        <p class="slide-description">
+          Experience total digital sovereignty. Encrypt sensitive communications and share verified ciphertexts anywhere.
+        </p>
+        
+        <div class="live-demo-card">
+          <div class="demo-label">Live Sample Ciphertext</div>
+          <div class="demo-output">HKODE:v1:GCM:48e29a0f...8f2b#sig=verified</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="dots-container">
+      <div class="dot active" onclick="goToSlide(0)"></div>
+      <div class="dot" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+      <div class="dot" onclick="goToSlide(3)"></div>
+    </div>
+
+    <!-- Actions -->
+    <div class="action-group">
+      <button class="btn-primary" id="btnNext" onclick="nextSlide()">
+        <span>Continue</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+
+      <a href="skybridge.apk" class="btn-secondary" id="btnDownload" download>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>Download skybridge.apk</span>
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 4;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const btnNext = document.getElementById('btnNext');
+    const btnSkip = document.getElementById('btnSkip');
+
+    function updateUI() {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentSlide);
+      });
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
+      });
+
+      if (currentSlide === totalSlides - 1) {
+        btnNext.innerHTML = `
+          <span>Get Started with Hkode</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        `;
+        btnSkip.style.visibility = 'hidden';
+      } else {
+        btnNext.innerHTML = `
+          <span>Continue</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        `;
+        btnSkip.style.visibility = 'visible';
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateUI();
+      } else {
+        // Final action: trigger download or direct open
+        window.location.href = 'skybridge.apk';
+      }
+    }
+
+    function goToSlide(idx) {
+      currentSlide = idx;
+      updateUI();
+    }
+
+    function goToLastSlide() {
+      currentSlide = totalSlides - 1;
+      updateUI();
+    }
+  </script>
+</body>
+</html>

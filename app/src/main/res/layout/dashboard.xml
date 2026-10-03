@@ -1,37 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/linear_root"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:background="@color/app_background"
 	android:orientation="vertical">
+
+	<!-- Status bar inset container -->
 	<LinearLayout
 		android:id="@+id/linear1"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:padding="10dp"
 		android:orientation="vertical">
+
+		<!-- Top Header Bar -->
 		<LinearLayout
 			android:id="@+id/linear2"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:padding="8dp"
+			android:paddingStart="24dp"
+			android:paddingEnd="20dp"
+			android:paddingTop="20dp"
+			android:paddingBottom="12dp"
 			android:gravity="center_vertical"
 			android:orientation="horizontal">
+
 			<ImageView
 				android:id="@+id/logo"
 				android:layout_width="40dp"
 				android:layout_height="40dp"
 				android:src="@drawable/logo_3"
-				android:scaleType="fitCenter" />
-			<TextView
-				android:id="@+id/textview1"
-				android:layout_width="wrap_content"
+				android:scaleType="fitCenter"
+				android:contentDescription="Hkode logo" />
+
+			<LinearLayout
+				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				android:layout_marginLeft="10dp"
-				android:text="@string/app_name"
-				android:textSize="23sp"
-				android:textColor="#000000" />
+				android:layout_weight="1"
+				android:layout_marginStart="14dp"
+				android:orientation="vertical">
+
+				<TextView
+					android:id="@+id/textview1"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/app_name"
+					android:textSize="24sp"
+					android:textColor="@color/text_primary"
+					android:textStyle="bold"
+					android:includeFontPadding="false" />
+
+				<TextView
+					android:id="@+id/tv_home_subtitle"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="2dp"
+					android:text="Private message encryption"
+					android:textSize="12sp"
+					android:textColor="@color/text_secondary"
+					android:includeFontPadding="false" />
+			</LinearLayout>
+
+			<!-- Action 1: History Button -->
+			<FrameLayout
+				android:id="@+id/btn_home_history"
+				android:layout_width="42dp"
+				android:layout_height="42dp"
+				android:background="@drawable/bg_back_button"
+				android:clickable="true"
+				android:focusable="true">
+
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_gravity="center"
+					android:src="@drawable/ic_history_clock"
+					app:tint="@color/icon_tint_primary"
+					android:contentDescription="History" />
+			</FrameLayout>
+
+			<!-- Action 2: Settings Button -->
+			<FrameLayout
+				android:id="@+id/btn_home_settings"
+				android:layout_width="42dp"
+				android:layout_height="42dp"
+				android:layout_marginStart="8dp"
+				android:background="@drawable/bg_back_button"
+				android:clickable="true"
+				android:focusable="true">
+
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_gravity="center"
+					android:src="@drawable/ic_settings"
+					app:tint="@color/icon_tint_primary"
+					android:contentDescription="Settings" />
+			</FrameLayout>
 		</LinearLayout>
+
+		<!-- Main Launcher Body -->
+		<androidx.core.widget.NestedScrollView
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:fillViewport="true"
+			android:overScrollMode="never">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:paddingStart="20dp"
+				android:paddingEnd="20dp"
+				android:paddingTop="28dp"
+				android:paddingBottom="24dp">
+
+				<!-- Action Card 1: ENCRYPT (Height 116dp) -->
+				<com.google.android.material.card.MaterialCardView
+					android:id="@+id/card_home_encrypt"
+					android:layout_width="match_parent"
+					android:layout_height="116dp"
+					android:clickable="true"
+					android:focusable="true"
+					app:cardCornerRadius="18dp"
+					app:cardElevation="0dp"
+					app:strokeWidth="1dp"
+					app:strokeColor="@color/card_stroke"
+					app:cardBackgroundColor="@color/card_background"
+					app:rippleColor="#1A05B859">
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:paddingStart="20dp"
+						android:paddingEnd="20dp">
+
+						<FrameLayout
+							android:layout_width="52dp"
+							android:layout_height="52dp"
+							android:background="@drawable/bg_icon_badge_blue">
+
+							<ImageView
+								android:layout_width="26dp"
+								android:layout_height="26dp"
+								android:layout_gravity="center"
+								android:src="@drawable/ic_encrypt_card"
+								android:contentDescription="Encrypt icon" />
+						</FrameLayout>
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_marginStart="18dp"
+							android:orientation="vertical">
+
+							<TextView
+								android:id="@+id/tv_encrypt_card_title"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Encrypt"
+								android:textSize="18sp"
+								android:textColor="@color/text_primary"
+								android:textStyle="bold" />
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="3dp"
+								android:text="Protect a message"
+								android:textSize="13sp"
+								android:textColor="@color/text_secondary" />
+						</LinearLayout>
+
+						<ImageView
+							android:layout_width="20dp"
+							android:layout_height="20dp"
+							android:src="@drawable/ic_arrow_forward"
+							app:tint="@color/text_muted"
+							android:contentDescription="Open encrypt" />
+					</LinearLayout>
+				</com.google.android.material.card.MaterialCardView>
+
+				<!-- Action Card 2: DECRYPT (Height 116dp) -->
+				<com.google.android.material.card.MaterialCardView
+					android:id="@+id/card_home_decrypt"
+					android:layout_width="match_parent"
+					android:layout_height="116dp"
+					android:layout_marginTop="14dp"
+					android:clickable="true"
+					android:focusable="true"
+					app:cardCornerRadius="18dp"
+					app:cardElevation="0dp"
+					app:strokeWidth="1dp"
+					app:strokeColor="@color/card_stroke"
+					app:cardBackgroundColor="@color/card_background"
+					app:rippleColor="#0F10B981">
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:paddingStart="20dp"
+						android:paddingEnd="20dp">
+
+						<FrameLayout
+							android:layout_width="52dp"
+							android:layout_height="52dp"
+							android:background="@drawable/bg_icon_badge_green">
+
+							<ImageView
+								android:layout_width="26dp"
+								android:layout_height="26dp"
+								android:layout_gravity="center"
+								android:src="@drawable/ic_decrypt_card"
+								android:contentDescription="Decrypt icon" />
+						</FrameLayout>
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_marginStart="18dp"
+							android:orientation="vertical">
+
+							<TextView
+								android:id="@+id/tv_decrypt_card_title"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Decrypt"
+								android:textSize="18sp"
+								android:textColor="@color/text_primary"
+								android:textStyle="bold" />
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="3dp"
+								android:text="Open a protected message"
+								android:textSize="13sp"
+								android:textColor="@color/text_secondary" />
+						</LinearLayout>
+
+						<ImageView
+							android:layout_width="20dp"
+							android:layout_height="20dp"
+							android:src="@drawable/ic_arrow_forward"
+							app:tint="@color/text_muted"
+							android:contentDescription="Open decrypt" />
+					</LinearLayout>
+				</com.google.android.material.card.MaterialCardView>
+
+				<!-- Action Card 3: CUSTOM (Height 116dp) -->
+				<com.google.android.material.card.MaterialCardView
+					android:id="@+id/card_home_custom"
+					android:layout_width="match_parent"
+					android:layout_height="116dp"
+					android:layout_marginTop="14dp"
+					android:clickable="true"
+					android:focusable="true"
+					app:cardCornerRadius="18dp"
+					app:cardElevation="0dp"
+					app:strokeWidth="1dp"
+					app:strokeColor="@color/card_stroke"
+					app:cardBackgroundColor="@color/card_background"
+					app:rippleColor="#1A05B859">
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:orientation="horizontal"
+						android:paddingStart="20dp"
+						android:paddingEnd="20dp">
+
+						<FrameLayout
+							android:layout_width="52dp"
+							android:layout_height="52dp"
+							android:background="@drawable/bg_icon_badge_indigo">
+
+							<ImageView
+								android:layout_width="26dp"
+								android:layout_height="26dp"
+								android:layout_gravity="center"
+								android:src="@drawable/ic_custom_card"
+								android:contentDescription="Custom icon" />
+						</FrameLayout>
+
+						<LinearLayout
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_weight="1"
+							android:layout_marginStart="18dp"
+							android:orientation="vertical">
+
+							<TextView
+								android:id="@+id/tv_custom_card_title"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Custom"
+								android:textSize="18sp"
+								android:textColor="@color/text_primary"
+								android:textStyle="bold" />
+
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="3dp"
+								android:text="Use a password"
+								android:textSize="13sp"
+								android:textColor="@color/text_secondary" />
+						</LinearLayout>
+
+						<ImageView
+							android:layout_width="20dp"
+							android:layout_height="20dp"
+							android:src="@drawable/ic_arrow_forward"
+							app:tint="@color/text_muted"
+							android:contentDescription="Open custom" />
+					</LinearLayout>
+				</com.google.android.material.card.MaterialCardView>
+
+				<!-- Flexible spacing to push security badge to bottom -->
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:minHeight="48dp" />
+
+				<!-- Subtle Security Indicator (Exact clean text requested) -->
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_horizontal"
+					android:layout_marginTop="16dp"
+					android:layout_marginBottom="12dp"
+					android:gravity="center_vertical"
+					android:orientation="horizontal">
+
+					<ImageView
+						android:layout_width="14dp"
+						android:layout_height="14dp"
+						android:src="@drawable/ic_shield_check"
+						app:tint="@color/colorAccent"
+						android:contentDescription="Security badge" />
+
+					<TextView
+						android:id="@+id/tv_home_security_spec"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginStart="6dp"
+						android:text="Advanced End-to-End Encryption"
+						android:textSize="12sp"
+						android:textColor="@color/text_muted"
+						android:letterSpacing="0.01" />
+				</LinearLayout>
+
+			</LinearLayout>
+		</androidx.core.widget.NestedScrollView>
+
 	</LinearLayout>
 </LinearLayout>

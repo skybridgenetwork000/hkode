@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_setup_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="28dp">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_drag_handle" />
+
+    <!-- Top Row with Close/Cancel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_icon_badge_blue">
+
+            <ImageView
+                android:id="@+id/iv_setup_badge_icon"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_shield_check"
+                app:tint="@color/colorPrimary"
+                android:contentDescription="Shield" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/btn_setup_close"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="6dp"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/text_muted"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Close" />
+    </LinearLayout>
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tv_setup_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Create App Passcode"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Subtitle / Step description -->
+    <TextView
+        android:id="@+id/tv_setup_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Enter a 4-digit passcode to protect your data"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <!-- Error / Status Text -->
+    <TextView
+        android:id="@+id/tv_setup_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Passcodes didn't match. Try again."
+        android:textColor="@color/color_error"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <!-- 4 Visual PIN Slots -->
+    <LinearLayout
+        android:id="@+id/layout_setup_pin_slots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Slot 1 -->
+        <FrameLayout
+            android:id="@+id/slot_setup_1"
+            android:layout_width="48dp"
+            android:layout_height="52dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_pin_box">
+
+            <View
+                android:id="@+id/dot_setup_1"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_pin_dot"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Slot 2 -->
+        <FrameLayout
+            android:id="@+id/slot_setup_2"
+            android:layout_width="48dp"
+            android:layout_height="52dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_pin_box">
+
+            <View
+                android:id="@+id/dot_setup_2"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_pin_dot"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Slot 3 -->
+        <FrameLayout
+            android:id="@+id/slot_setup_3"
+            android:layout_width="48dp"
+            android:layout_height="52dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_pin_box">
+
+            <View
+                android:id="@+id/dot_setup_3"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_pin_dot"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Slot 4 -->
+        <FrameLayout
+            android:id="@+id/slot_setup_4"
+            android:layout_width="48dp"
+            android:layout_height="52dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_pin_box">
+
+            <View
+                android:id="@+id/dot_setup_4"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_pin_dot"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Keypad -->
+    <TableLayout
+        android:id="@+id/table_setup_keypad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:stretchColumns="*">
+
+        <!-- Row 1: 1, 2, 3 -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/btn_setup_key_1"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/btn_setup_key_2"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/btn_setup_key_3"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+        </TableRow>
+
+        <!-- Row 2: 4, 5, 6 -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/btn_setup_key_4"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:gravity="center"
+                android:text="4"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/btn_setup_key_5"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/btn_setup_key_6"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+        </TableRow>
+
+        <!-- Row 3: 7, 8, 9 -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/btn_setup_key_7"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:gravity="center"
+                android:text="7"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/btn_setup_key_8"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:gravity="center"
+                android:text="8"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/btn_setup_key_9"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:gravity="center"
+                android:text="9"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+        </TableRow>
+
+        <!-- Row 4: Empty/Cancel, 0, Backspace -->
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <!-- Reset / Cancel step -->
+            <TextView
+                android:id="@+id/btn_setup_cancel_step"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:text="Cancel"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <!-- 0 -->
+            <TextView
+                android:id="@+id/btn_setup_key_0"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <!-- Backspace button -->
+            <FrameLayout
+                android:id="@+id/btn_setup_key_backspace"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_keypad_button"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_backspace"
+                    app:tint="@color/text_primary"
+                    android:contentDescription="Backspace" />
+            </FrameLayout>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

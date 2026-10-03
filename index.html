@@ -1,0 +1,2714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <!-- ========================================================================= -->
+  <!-- 🚀 APP DOWNLOAD URL CONFIGURATION                                         -->
+  <!-- Easily update your latest APK download link here!                         -->
+  <!-- All download buttons and menu actions read directly from this string.     -->
+  <!-- ========================================================================= -->
+  <script>
+    const APK_DOWNLOAD_URL = "https://hkode.linexware.net.ng/apk/hkode_v1.0.apk";
+  </script>
+  <!-- ========================================================================= -->
+
+  <title>Hkode - Sovereign Text Encryption &amp; Security</title>
+  <meta name="description" content="Hkode is a sovereign text encryption and privacy app providing military-grade AES-256-GCM encryption with 100% offline security for schools, students, educators, and privacy-conscious users.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/svg+xml" href="icons/hk-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* Dark Theme (Default) */
+      --bg: #0B1120;
+      --card-bg: #131D33;
+      --card-stroke: #1E293B;
+      --card-stroke-hover: rgba(0, 229, 255, 0.4);
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --primary: #00E676;
+      --cyan: #00E5FF;
+      --blue: #2979FF;
+      --purple: #7000FF;
+      --gradient-btn: linear-gradient(90deg, #00E676 0%, #00E5FF 45%, #2979FF 100%);
+      --btn-download-text: #051322;
+      --header-height: 72px;
+      --header-bg: rgba(11, 17, 32, 0.88);
+      --header-border: rgba(255, 255, 255, 0.08);
+      --logo-box-border: rgba(255, 255, 255, 0.12);
+      --logo-box-shadow: 0 4px 14px rgba(0, 230, 118, 0.25);
+      --nav-cta-bg: rgba(255, 255, 255, 0.06);
+      --nav-cta-border: #1E293B;
+      --nav-cta-hover: rgba(255, 255, 255, 0.12);
+      --menu-btn-bg: rgba(255, 255, 255, 0.05);
+      --menu-btn-border: rgba(255, 255, 255, 0.12);
+      --popup-bg: rgba(19, 29, 51, 0.97);
+      --popup-border: rgba(255, 255, 255, 0.14);
+      --popup-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 230, 118, 0.12);
+      --popup-item-hover: rgba(255, 255, 255, 0.08);
+      --popup-divider: rgba(255, 255, 255, 0.08);
+      --badge-pill-bg: rgba(0, 230, 118, 0.08);
+      --badge-pill-border: rgba(0, 230, 118, 0.25);
+      --badge-pill-text: #00E676;
+      --stat-icon-bg: rgba(0, 229, 255, 0.1);
+      --card-badge-bg: rgba(41, 121, 255, 0.1);
+      --card-badge-border: rgba(41, 121, 255, 0.25);
+      --card-badge-text: #00E5FF;
+      --feature-bg: rgba(19, 29, 51, 0.7);
+      --faq-toggle-bg: rgba(255, 255, 255, 0.05);
+      --download-bg: linear-gradient(180deg, transparent 0%, rgba(19, 29, 51, 0.75) 100%);
+      --download-border: rgba(255, 255, 255, 0.05);
+      --store-badge-bg: rgba(255, 255, 255, 0.04);
+      --store-badge-border: rgba(255, 255, 255, 0.08);
+      --store-pill-bg: rgba(255, 255, 255, 0.06);
+      --store-pill-text: #00E5FF;
+      --footer-bg: #0B1120;
+      --footer-border: rgba(255, 255, 255, 0.05);
+      --footer-text: #64748B;
+      --carousel-arrow-bg: rgba(14, 21, 37, 0.88);
+      --carousel-arrow-border: rgba(255, 255, 255, 0.14);
+      --carousel-arrow-text: #FFFFFF;
+      --carousel-arrow-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      --dot-inactive: rgba(255, 255, 255, 0.22);
+      --dot-inactive-hover: rgba(255, 255, 255, 0.55);
+      --ios-bezel-border: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.45) 0%,
+        rgba(90, 100, 120, 0.35) 25%,
+        rgba(30, 40, 55, 0.8) 50%,
+        rgba(90, 100, 120, 0.35) 75%,
+        rgba(255, 255, 255, 0.4) 100%);
+      --ios-bezel-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9), 0 20px 45px -10px rgba(0, 0, 0, 0.7);
+      --ios-active-glow: 0 25px 65px -10px rgba(0, 0, 0, 0.85), 0 0 40px rgba(0, 240, 255, 0.28), 0 0 70px rgba(112, 0, 255, 0.18);
+      --ios-inactive-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.6);
+      --ios-indicator: rgba(255, 255, 255, 0.75);
+      --orb-1-bg: radial-gradient(circle, rgba(0, 230, 118, 0.08) 0%, rgba(0, 229, 255, 0.04) 50%, transparent 70%);
+      --orb-2-bg: radial-gradient(circle, rgba(41, 121, 255, 0.09) 0%, transparent 70%);
+      --orb-3-bg: radial-gradient(circle, rgba(0, 230, 118, 0.07) 0%, transparent 70%);
+    }
+
+    /* Light Theme (Explicit data-theme="light") */
+    :root[data-theme="light"], [data-theme="light"] {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --card-stroke: #E2E8F0;
+      --card-stroke-hover: #05B859;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #64748B;
+      --primary: #05B859;
+      --cyan: #0284C7;
+      --blue: #2563EB;
+      --purple: #6366F1;
+      --gradient-btn: linear-gradient(90deg, #05B859 0%, #00B4D8 45%, #2563EB 100%);
+      --btn-download-text: #FFFFFF;
+      --header-bg: rgba(255, 255, 255, 0.90);
+      --header-border: #E2E8F0;
+      --logo-box-border: #E2E8F0;
+      --logo-box-shadow: 0 4px 14px rgba(5, 184, 89, 0.2);
+      --nav-cta-bg: #F1F5F9;
+      --nav-cta-border: #CBD5E1;
+      --nav-cta-hover: #E2E8F0;
+      --menu-btn-bg: #F1F5F9;
+      --menu-btn-border: #CBD5E1;
+      --popup-bg: rgba(255, 255, 255, 0.98);
+      --popup-border: #E2E8F0;
+      --popup-shadow: 0 16px 36px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(5, 184, 89, 0.15);
+      --popup-item-hover: #F1F5F9;
+      --popup-divider: #E2E8F0;
+      --badge-pill-bg: #E8F8F0;
+      --badge-pill-border: #A7F3D0;
+      --badge-pill-text: #048741;
+      --stat-icon-bg: #E0F2FE;
+      --card-badge-bg: #EFF6FF;
+      --card-badge-border: #BFDBFE;
+      --card-badge-text: #1D4ED8;
+      --feature-bg: #FFFFFF;
+      --faq-toggle-bg: #F1F5F9;
+      --download-bg: linear-gradient(180deg, #F8FAFC 0%, #EEF2F6 100%);
+      --download-border: #E2E8F0;
+      --store-badge-bg: #FFFFFF;
+      --store-badge-border: #CBD5E1;
+      --store-pill-bg: #E0F2FE;
+      --store-pill-text: #0284C7;
+      --footer-bg: #F8FAFC;
+      --footer-border: #E2E8F0;
+      --footer-text: #64748B;
+      --carousel-arrow-bg: rgba(255, 255, 255, 0.95);
+      --carousel-arrow-border: #CBD5E1;
+      --carousel-arrow-text: #0F172A;
+      --carousel-arrow-shadow: 0 4px 18px rgba(15, 23, 42, 0.12);
+      --dot-inactive: rgba(15, 23, 42, 0.2);
+      --dot-inactive-hover: rgba(15, 23, 42, 0.5);
+      --ios-bezel-border: linear-gradient(135deg,
+        #CBD5E1 0%,
+        #94A3B8 30%,
+        #64748B 50%,
+        #94A3B8 70%,
+        #E2E8F0 100%);
+      --ios-bezel-shadow: 0 0 0 1px rgba(15, 23, 42, 0.12), 0 20px 45px -10px rgba(15, 23, 42, 0.18);
+      --ios-active-glow: 0 22px 55px -10px rgba(15, 23, 42, 0.18), 0 0 35px rgba(2, 132, 199, 0.22), 0 0 50px rgba(5, 184, 89, 0.15);
+      --ios-inactive-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.12);
+      --ios-indicator: rgba(15, 23, 42, 0.75);
+      --orb-1-bg: radial-gradient(circle, rgba(5, 184, 89, 0.08) 0%, rgba(2, 132, 199, 0.04) 50%, transparent 70%);
+      --orb-2-bg: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+      --orb-3-bg: radial-gradient(circle, rgba(5, 184, 89, 0.06) 0%, transparent 70%);
+    }
+
+    :root[data-theme="dark"], [data-theme="dark"] {
+      --bg: #0B1120;
+      --card-bg: #131D33;
+      --card-stroke: #1E293B;
+      --card-stroke-hover: rgba(0, 229, 255, 0.4);
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --primary: #00E676;
+      --cyan: #00E5FF;
+      --blue: #2979FF;
+      --purple: #7000FF;
+      --gradient-btn: linear-gradient(90deg, #00E676 0%, #00E5FF 45%, #2979FF 100%);
+      --btn-download-text: #051322;
+      --header-height: 72px;
+      --header-bg: rgba(11, 17, 32, 0.88);
+      --header-border: rgba(255, 255, 255, 0.08);
+      --logo-box-border: rgba(255, 255, 255, 0.12);
+      --logo-box-shadow: 0 4px 14px rgba(0, 230, 118, 0.25);
+      --nav-cta-bg: rgba(255, 255, 255, 0.06);
+      --nav-cta-border: #1E293B;
+      --nav-cta-hover: rgba(255, 255, 255, 0.12);
+      --menu-btn-bg: rgba(255, 255, 255, 0.05);
+      --menu-btn-border: rgba(255, 255, 255, 0.12);
+      --popup-bg: rgba(19, 29, 51, 0.97);
+      --popup-border: rgba(255, 255, 255, 0.14);
+      --popup-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 230, 118, 0.12);
+      --popup-item-hover: rgba(255, 255, 255, 0.08);
+      --popup-divider: rgba(255, 255, 255, 0.08);
+      --badge-pill-bg: rgba(0, 230, 118, 0.08);
+      --badge-pill-border: rgba(0, 230, 118, 0.25);
+      --badge-pill-text: #00E676;
+      --stat-icon-bg: rgba(0, 229, 255, 0.1);
+      --card-badge-bg: rgba(41, 121, 255, 0.1);
+      --card-badge-border: rgba(41, 121, 255, 0.25);
+      --card-badge-text: #00E5FF;
+      --feature-bg: rgba(19, 29, 51, 0.7);
+      --faq-toggle-bg: rgba(255, 255, 255, 0.05);
+      --download-bg: linear-gradient(180deg, transparent 0%, rgba(19, 29, 51, 0.75) 100%);
+      --download-border: rgba(255, 255, 255, 0.05);
+      --store-badge-bg: rgba(255, 255, 255, 0.04);
+      --store-badge-border: rgba(255, 255, 255, 0.08);
+      --store-pill-bg: rgba(255, 255, 255, 0.06);
+      --store-pill-text: #00E5FF;
+      --footer-bg: #0B1120;
+      --footer-border: rgba(255, 255, 255, 0.05);
+      --footer-text: #64748B;
+      --carousel-arrow-bg: rgba(14, 21, 37, 0.88);
+      --carousel-arrow-border: rgba(255, 255, 255, 0.14);
+      --carousel-arrow-text: #FFFFFF;
+      --carousel-arrow-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      --dot-inactive: rgba(255, 255, 255, 0.22);
+      --dot-inactive-hover: rgba(255, 255, 255, 0.55);
+      --ios-bezel-border: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.45) 0%,
+        rgba(90, 100, 120, 0.35) 25%,
+        rgba(30, 40, 55, 0.8) 50%,
+        rgba(90, 100, 120, 0.35) 75%,
+        rgba(255, 255, 255, 0.4) 100%);
+      --ios-bezel-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9), 0 20px 45px -10px rgba(0, 0, 0, 0.7);
+      --ios-active-glow: 0 25px 65px -10px rgba(0, 0, 0, 0.85), 0 0 40px rgba(0, 240, 255, 0.28), 0 0 70px rgba(112, 0, 255, 0.18);
+      --ios-inactive-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.6);
+      --ios-indicator: rgba(255, 255, 255, 0.75);
+      --orb-1-bg: radial-gradient(circle, rgba(0, 230, 118, 0.08) 0%, rgba(0, 229, 255, 0.04) 50%, transparent 70%);
+      --orb-2-bg: radial-gradient(circle, rgba(41, 121, 255, 0.09) 0%, transparent 70%);
+      --orb-3-bg: radial-gradient(circle, rgba(0, 230, 118, 0.07) 0%, transparent 70%);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Fixed ambient cyber glow container - strictly no overflow */
+    .glow-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-orb {
+      position: absolute;
+      width: clamp(280px, 45vw, 500px);
+      height: clamp(280px, 45vw, 500px);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 230, 118, 0.08) 0%, rgba(0, 229, 255, 0.04) 50%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .orb-1 { top: -100px; left: -100px; background: var(--orb-1-bg); }
+    .orb-2 { top: 40%; right: -120px; background: var(--orb-2-bg); }
+    .orb-3 { bottom: -100px; left: 10%; background: var(--orb-3-bg); }
+
+    /* Fluid Main Wrapper */
+    .wrapper {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 clamp(16px, 4vw, 32px);
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+    }
+
+    /* Header & Navigation Bar */
+    header {
+      width: 100%;
+      height: var(--header-height);
+      border-bottom: 1px solid var(--header-border);
+      position: sticky;
+      top: 0;
+      background: var(--header-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+      user-select: none;
+    }
+
+    .brand-logo-container {
+      position: relative;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--card-bg);
+      border: 1px solid var(--logo-box-border);
+      box-shadow: var(--logo-box-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .brand-logo-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(0, 230, 118, 0.15), rgba(0, 229, 255, 0.15));
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: -0.5px;
+      z-index: 1;
+    }
+
+    .brand-logo-img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 9px;
+      display: block;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .brand-logo-img.loaded {
+      opacity: 1;
+    }
+
+    .brand-logo-img.error {
+      display: none !important;
+      opacity: 0 !important;
+    }
+
+    /* Subtle cyber shimmer glint */
+    .brand-logo-shimmer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+      overflow: hidden;
+      border-radius: 9px;
+    }
+
+    .brand-logo-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -150%;
+      width: 150%;
+      height: 200%;
+      background: linear-gradient(
+        105deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.04) 38%,
+        rgba(255, 255, 255, 0.35) 50%,
+        rgba(0, 230, 118, 0.25) 60%,
+        transparent 75%
+      );
+      transform: rotate(25deg);
+      animation: logo-shimmer 3s infinite ease-in-out;
+    }
+
+    @keyframes logo-shimmer {
+      0% { transform: rotate(25deg) translateY(-100%); }
+      45%, 100% { transform: rotate(25deg) translateY(120%); }
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text-primary);
+    }
+
+    /* Header Actions Group */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    /* Desktop Navigation */
+    .desktop-nav ul {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .desktop-nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .desktop-nav a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-cta {
+      background: var(--nav-cta-bg);
+      border: 1px solid var(--nav-cta-border);
+      color: var(--text-primary) !important;
+      padding: 8px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-cta:hover {
+      background: var(--nav-cta-hover);
+      border-color: var(--cyan);
+      transform: translateY(-1px);
+    }
+
+    /* ========================================================================= */
+    /* 📱 ANDROID-STYLE SMALL POP-UP MENU                                        */
+    /* ========================================================================= */
+    .menu-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-toggle-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--menu-btn-bg);
+      border: 1px solid var(--menu-btn-border);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease, color 0.15s ease;
+      outline: none;
+    }
+
+    .menu-toggle-btn:hover, .menu-toggle-btn.active {
+      background: rgba(0, 230, 118, 0.12);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .menu-toggle-btn:active {
+      transform: scale(0.94);
+    }
+
+    .menu-dots-icon {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Small Android Floating Popup Card */
+    .popup-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      width: 236px;
+      background: var(--popup-bg);
+      border: 1px solid var(--popup-border);
+      border-radius: 16px;
+      box-shadow: var(--popup-shadow);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 6px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      transform-origin: top right;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.92) translateY(-6px);
+      pointer-events: none;
+      transition: opacity 0.18s cubic-bezier(0, 0, 0.2, 1),
+                  transform 0.18s cubic-bezier(0, 0, 0.2, 1),
+                  visibility 0.18s,
+                  background 0.25s ease,
+                  border-color 0.25s ease;
+    }
+
+    .popup-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+
+    .popup-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.15s ease, color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .popup-item:hover, .popup-item:active {
+      background: var(--popup-item-hover);
+      color: var(--cyan);
+    }
+
+    .popup-item svg {
+      width: 17px;
+      height: 17px;
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .popup-divider {
+      height: 1px;
+      background: var(--popup-divider);
+      margin: 4px 6px;
+    }
+
+    /* 3-Choice Theme Section inside Popup Menu */
+    .popup-theme-container {
+      padding: 4px 4px 2px;
+      margin: 2px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .popup-theme-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 8px 2px;
+    }
+
+    .popup-theme-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+    }
+
+    .popup-theme-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(0, 229, 255, 0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    :root[data-theme="light"] .popup-theme-badge {
+      background: rgba(5, 184, 89, 0.12);
+      color: #048741;
+      border-color: rgba(5, 184, 89, 0.25);
+    }
+
+    .popup-theme-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .theme-check-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 9px;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+      text-align: left;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 500;
+      user-select: none;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .theme-check-item:hover {
+      background: var(--popup-item-hover);
+      color: var(--text-primary);
+    }
+
+    .theme-check-item.active {
+      background: rgba(0, 230, 118, 0.12);
+      border-color: rgba(0, 230, 118, 0.32);
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    :root[data-theme="light"] .theme-check-item.active {
+      background: rgba(5, 184, 89, 0.12);
+      border-color: rgba(5, 184, 89, 0.35);
+      color: var(--text-primary);
+    }
+
+    .theme-check-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-check-icon {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .theme-check-item:hover .theme-check-icon {
+      transform: scale(1.1);
+    }
+
+    .icon-light {
+      color: #F59E0B;
+    }
+
+    .icon-dark {
+      color: var(--cyan);
+    }
+
+    .icon-system {
+      color: var(--blue);
+    }
+
+    .theme-check-indicator {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-sizing: border-box;
+    }
+
+    :root[data-theme="light"] .theme-check-indicator {
+      border-color: rgba(15, 23, 42, 0.25);
+      background: rgba(15, 23, 42, 0.04);
+    }
+
+    .theme-check-svg {
+      width: 11px;
+      height: 11px;
+      stroke: #051322;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .theme-check-item.active .theme-check-indicator {
+      background: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+      transform: scale(1.05);
+    }
+
+    :root[data-theme="light"] .theme-check-item.active .theme-check-indicator {
+      background: #05B859;
+      border-color: #05B859;
+      box-shadow: 0 0 10px rgba(5, 184, 89, 0.4);
+    }
+
+    .theme-check-item.active .theme-check-svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    :root[data-theme="light"] .theme-check-svg {
+      stroke: #FFFFFF;
+    }
+
+    .popup-item-download {
+      background: rgba(0, 230, 118, 0.12);
+      color: var(--primary);
+      font-weight: 700;
+      border: 1px solid rgba(0, 230, 118, 0.25);
+    }
+
+    .popup-item-download:hover, .popup-item-download:active {
+      background: rgba(0, 230, 118, 0.22);
+      border-color: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .popup-item-download svg {
+      color: var(--primary);
+    }
+
+    /* Section Structure */
+    section {
+      padding: clamp(40px, 6vw, 70px) 0;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: clamp(40px, 7vw, 80px) 0 clamp(30px, 5vw, 60px);
+      text-align: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--badge-pill-bg);
+      border: 1px solid var(--badge-pill-border);
+      color: var(--badge-pill-text);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: clamp(11px, 2.5vw, 13px);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      max-width: 100%;
+      transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+      flex-shrink: 0;
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 6vw, 50px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+      word-break: break-word;
+      color: var(--text-primary);
+    }
+
+    .hero-title .gradient-text {
+      background: var(--gradient-btn);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(15px, 2.8vw, 19px);
+      color: var(--text-secondary);
+      max-width: 740px;
+      margin: 0 auto clamp(24px, 4vw, 36px);
+      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+    }
+
+    /* Quick Stats Bar - Responsive Fluid Grid */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+      gap: clamp(12px, 2.5vw, 18px);
+      margin-top: 30px;
+      width: 100%;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-stroke);
+      border-radius: 18px;
+      padding: clamp(16px, 3vw, 22px);
+      text-align: left;
+      box-sizing: border-box;
+      width: 100%;
+      transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .stat-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--stat-icon-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+      margin-bottom: 12px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .stat-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .stat-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto clamp(28px, 5vw, 48px);
+      padding: 0 8px;
+    }
+
+    .section-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 5vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+      word-break: break-word;
+      color: var(--text-primary);
+    }
+
+    .section-subtitle {
+      font-size: clamp(14px, 2.5vw, 16px);
+      color: var(--text-secondary);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Schools & Campus Listing - Fluid Responsive Grid */
+    .schools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: clamp(14px, 3vw, 20px);
+      width: 100%;
+    }
+
+    .school-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-stroke);
+      border-radius: 20px;
+      padding: clamp(20px, 3.5vw, 28px);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .school-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--card-stroke-hover);
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--card-badge-bg);
+      border: 1px solid var(--card-badge-border);
+      border-radius: 8px;
+      color: var(--card-badge-text);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      width: fit-content;
+      text-transform: uppercase;
+      transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .school-card h3 {
+      font-size: clamp(17px, 3vw, 19px);
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .school-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Core Security Features */
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: clamp(12px, 2.5vw, 18px);
+      width: 100%;
+    }
+
+    .feature-item {
+      background: var(--feature-bg);
+      border: 1px solid var(--card-stroke);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 24px);
+      box-sizing: border-box;
+      width: 100%;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .feature-item h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-item p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* FAQs Section */
+    .faq-container {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-stroke);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.2s ease, background 0.25s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .faq-item.active {
+      border-color: var(--card-stroke-hover);
+    }
+
+    .faq-question {
+      padding: clamp(16px, 3vw, 20px) clamp(16px, 3.5vw, 24px);
+      font-size: clamp(14px, 2.5vw, 16px);
+      font-weight: 700;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      gap: 12px;
+    }
+
+    .faq-toggle-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--faq-toggle-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-toggle-icon {
+      transform: rotate(180deg);
+      color: var(--cyan);
+      background: var(--stat-icon-bg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 clamp(16px, 3.5vw, 24px);
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 400px;
+      padding-bottom: 20px;
+    }
+
+    /* Bottom Download Call-to-Action */
+    .download-section {
+      padding: clamp(50px, 8vw, 80px) 0 clamp(40px, 6vw, 60px);
+      text-align: center;
+      background: var(--download-bg);
+      border-top: 1px solid var(--download-border);
+      width: 100%;
+      box-sizing: border-box;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .download-box {
+      max-width: 650px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .download-title {
+      font-size: clamp(26px, 5.5vw, 38px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      word-break: break-word;
+      color: var(--text-primary);
+    }
+
+    .download-desc {
+      font-size: clamp(14px, 2.5vw, 16px);
+      color: var(--text-secondary);
+      margin-bottom: clamp(24px, 4vw, 32px);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Primary Download Button with Gradient and Black Text */
+    .btn-download-app {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--gradient-btn);
+      color: var(--btn-download-text);
+      font-size: clamp(15px, 3vw, 17px);
+      font-weight: 800;
+      padding: clamp(14px, 2.5vw, 18px) clamp(28px, 6vw, 44px);
+      border-radius: 18px;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0, 230, 118, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.25s ease, background 0.25s ease;
+      cursor: pointer;
+      border: none;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .btn-download-app:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 38px rgba(0, 229, 255, 0.45);
+    }
+
+    .btn-download-app:active {
+      transform: scale(0.98);
+    }
+
+    .btn-download-app.pulse-highlight {
+      animation: pulse-ring 1.8s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.85), 0 10px 30px rgba(0, 230, 118, 0.35);
+      }
+      50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 0 18px rgba(0, 229, 255, 0), 0 14px 40px rgba(0, 229, 255, 0.55);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 230, 118, 0), 0 10px 30px rgba(0, 230, 118, 0.35);
+      }
+    }
+
+    .btn-download-app svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2.5;
+      flex-shrink: 0;
+    }
+
+    /* Coming Soon Store Badges */
+    .store-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(10px, 2vw, 18px);
+      margin-top: 24px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--store-badge-bg);
+      border: 1px solid var(--store-badge-border);
+      border-radius: 12px;
+      padding: 8px 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+      user-select: none;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .store-badge svg {
+      width: 16px;
+      height: 16px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .store-badge .store-name {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .store-badge .pill-tag {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: var(--store-pill-bg);
+      padding: 2px 7px;
+      border-radius: 6px;
+      color: var(--store-pill-text);
+      letter-spacing: 0.5px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--footer-border);
+      padding: clamp(24px, 4vw, 36px) 0;
+      text-align: center;
+      color: var(--footer-text);
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      width: 100%;
+      box-sizing: border-box;
+      background: var(--footer-bg);
+      transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+      .btn-download-app {
+        width: 100%;
+        max-width: 380px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-name {
+        font-size: 20px;
+      }
+      .store-badge {
+        width: 100%;
+        max-width: 260px;
+        justify-content: center;
+      }
+    }
+
+    /* ========================================================================= */
+    /* iOS Screenshot Showcase & Side-by-Side Auto Carousel                      */
+    /* ========================================================================= */
+    .showcase-section {
+      padding: clamp(32px, 5vw, 60px) 0 clamp(20px, 3.5vw, 40px);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      box-sizing: border-box;
+      --slide-width: clamp(208px, 54vw, 252px);
+    }
+
+    .showcase-carousel-wrapper {
+      position: relative;
+      width: 100%;
+      margin: clamp(16px, 3vw, 28px) 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .carousel-track-container {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      cursor: grab;
+      padding: 18px 0 14px;
+      box-sizing: border-box;
+    }
+
+    .carousel-track-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-track-container.is-dragging {
+      cursor: grabbing;
+      scroll-behavior: auto;
+      scroll-snap-type: none;
+    }
+
+    .carousel-track {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 3vw, 26px);
+      padding: 0 calc(50% - (var(--slide-width) / 2));
+      width: max-content;
+      box-sizing: border-box;
+    }
+
+    .carousel-slide {
+      flex: 0 0 auto;
+      width: var(--slide-width);
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      user-select: none;
+      transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* Side / Inactive slides */
+    .carousel-slide:not(.active) {
+      opacity: 0.45;
+      transform: scale(0.88);
+      cursor: pointer;
+    }
+
+    .carousel-slide:not(.active) .ios-device-frame {
+      box-shadow: var(--ios-inactive-shadow);
+      filter: brightness(0.85) contrast(0.96);
+    }
+
+    /* Active centered slide */
+    .carousel-slide.active {
+      opacity: 1;
+      transform: scale(1.0);
+      z-index: 5;
+    }
+
+    .carousel-slide.active .ios-device-frame {
+      box-shadow: var(--ios-active-glow);
+      filter: brightness(1.02);
+    }
+
+    /* Center bounce animation when entering/snapping focus */
+    @keyframes slideCenterBounce {
+      0% {
+        transform: scale(0.90) translateY(10px);
+      }
+      45% {
+        transform: scale(1.05) translateY(-6px);
+      }
+      75% {
+        transform: scale(0.985) translateY(2px);
+      }
+      100% {
+        transform: scale(1.0) translateY(0);
+      }
+    }
+
+    .carousel-slide.active.bouncing .ios-device-frame {
+      animation: slideCenterBounce 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    /* Slim-edged iOS Device Mockup (80% reduced height) */
+    .ios-device-frame {
+      width: 100%;
+      aspect-ratio: 720 / 1576;
+      max-height: 512px;
+      position: relative;
+      border-radius: clamp(30px, 6.5vw, 38px);
+      padding: 3.5px;
+      background: var(--ios-bezel-border);
+      box-shadow: var(--ios-bezel-shadow);
+      transition: box-shadow 0.35s ease, filter 0.35s ease, background 0.35s ease;
+      transform-origin: center center;
+      box-sizing: border-box;
+    }
+
+    .ios-device-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: clamp(26px, 6vw, 34px);
+      overflow: hidden;
+      background: #000;
+      box-shadow: inset 0 0 0 1.5px rgba(0, 0, 0, 0.9);
+    }
+
+    /* iOS Dynamic Island */
+    .ios-dynamic-island {
+      position: absolute;
+      top: 7px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 18px;
+      background: #000;
+      border-radius: 16px;
+      z-index: 12;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), inset 0 0 0 0.5px rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7px;
+      pointer-events: none;
+    }
+
+    .ios-camera-lens {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #1e3555 0%, #060b12 75%);
+      box-shadow: inset 0 0 1px rgba(0, 240, 255, 0.5);
+    }
+
+    .ios-sensor {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #0a0d14;
+    }
+
+    /* Screen Glass Reflection / Sheen */
+    .ios-glass-glare {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48%;
+      background: linear-gradient(125deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 65%);
+      pointer-events: none;
+      z-index: 10;
+      border-radius: clamp(26px, 6vw, 34px) clamp(26px, 6vw, 34px) 0 0;
+    }
+
+    /* iOS Home Indicator */
+    .ios-home-indicator {
+      position: absolute;
+      bottom: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3.5px;
+      background: var(--ios-indicator);
+      border-radius: 3px;
+      z-index: 12;
+      pointer-events: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+      transition: background 0.3s ease;
+    }
+
+    /* Screenshot Image */
+    .ios-screenshot-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+      background: var(--card-bg);
+    }
+
+    /* Screenshot Light/Dark Mode Switching strictly based on data-theme */
+    .screenshot-light {
+      display: none !important;
+    }
+    .screenshot-dark {
+      display: block !important;
+    }
+
+    :root[data-theme="light"] .screenshot-light,
+    [data-theme="light"] .screenshot-light {
+      display: block !important;
+    }
+    :root[data-theme="light"] .screenshot-dark,
+    [data-theme="light"] .screenshot-dark {
+      display: none !important;
+    }
+
+    :root[data-theme="dark"] .screenshot-light,
+    [data-theme="dark"] .screenshot-light {
+      display: none !important;
+    }
+    :root[data-theme="dark"] .screenshot-dark,
+    [data-theme="dark"] .screenshot-dark {
+      display: block !important;
+    }
+
+    /* Slide Caption */
+    .slide-caption {
+      margin-top: 14px;
+      text-align: center;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      width: 100%;
+    }
+
+    .carousel-slide:not(.active) .slide-caption {
+      opacity: 0.45;
+      transform: translateY(3px);
+    }
+
+    .carousel-slide.active .slide-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-caption h4 {
+      font-size: clamp(14px, 2.2vw, 16px);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 3px;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.2px;
+      transition: color 0.25s ease;
+    }
+
+    .slide-caption p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      transition: color 0.25s ease;
+    }
+
+    /* Navigation Arrows (Desktop / Tablet) */
+    .carousel-nav-btn {
+      position: absolute;
+      top: 44%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--carousel-arrow-bg);
+      border: 1px solid var(--carousel-arrow-border);
+      color: var(--carousel-arrow-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+      box-shadow: var(--carousel-arrow-shadow);
+    }
+
+    .carousel-nav-btn:hover {
+      background: var(--stat-icon-bg);
+      border-color: var(--cyan);
+      color: var(--cyan);
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    }
+
+    .carousel-nav-btn.prev {
+      left: 10px;
+    }
+
+    .carousel-nav-btn.next {
+      right: 10px;
+    }
+
+    @media (max-width: 680px) {
+      .carousel-nav-btn {
+        display: none;
+      }
+    }
+
+    /* Small progress dots at the bottom, NOT on top */
+    .carousel-dots-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: clamp(18px, 3.2vw, 28px);
+      padding: 6px 16px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--dot-inactive);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .carousel-dot:hover {
+      background: var(--dot-inactive-hover);
+      transform: scale(1.15);
+    }
+
+    .carousel-dot.active {
+      width: 26px;
+      border-radius: 5px;
+      background: linear-gradient(90deg, var(--cyan) 0%, var(--purple) 100%);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.65);
+    }
+
+    /* Adaptable Feature Icons */
+    .feature-icon-primary { color: var(--primary) !important; }
+    .feature-icon-cyan { color: var(--cyan) !important; }
+    .feature-icon-blue { color: var(--blue) !important; }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glow Backdrop (Safely Contained) -->
+  <div class="glow-backdrop">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="wrapper nav-container">
+      <a href="#" class="brand">
+        <div class="brand-logo-container">
+          <div class="brand-logo-fallback">hk</div>
+          <img src="https://hkode.linexware.net.ng/images/logo.webp"
+               alt="Hkode"
+               class="brand-logo-img"
+               loading="eager"
+               decoding="async"
+               onload="this.classList.add('loaded')"
+               onerror="this.classList.add('error'); this.style.display='none';">
+          <div class="brand-logo-shimmer"></div>
+        </div>
+        <div class="brand-name">Hkode</div>
+      </a>
+
+      <!-- Header Actions: Desktop Nav + Top Right Android Popup Menu -->
+      <div class="header-actions">
+        <!-- Desktop Navigation Menu -->
+        <nav class="desktop-nav">
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#preview">App Preview</a></li>
+            <li><a href="#schools">Schools &amp; Education</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="#download" id="nav-download-btn" class="nav-cta">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Get App</span>
+            </a></li>
+          </ul>
+        </nav>
+
+        <!-- Top Right Android Pop-up Menu Anchor -->
+        <div class="menu-container">
+          <button id="menu-toggle-btn" class="menu-toggle-btn" aria-label="Open Menu" aria-haspopup="true" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="menu-dots-icon">
+              <circle cx="12" cy="5" r="2"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+              <circle cx="12" cy="19" r="2"></circle>
+            </svg>
+          </button>
+
+          <!-- Small Floating Android-style Pop-up Menu -->
+          <div id="popup-menu" class="popup-menu" role="menu" aria-hidden="true">
+            <a href="#about" class="popup-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span>About Us</span>
+            </a>
+
+            <a href="#preview" class="popup-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="3" ry="3"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+              <span>App Preview</span>
+            </a>
+
+            <a href="#schools" class="popup-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span>Schools &amp; Education</span>
+            </a>
+
+            <a href="#security" class="popup-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Security Specs</span>
+            </a>
+
+            <a href="#faqs" class="popup-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+              <span>FAQs</span>
+            </a>
+
+            <div class="popup-divider"></div>
+
+            <!-- 3-Choice Theme Section: Light, Dark, System (Auto) -->
+            <div class="popup-theme-container">
+              <div class="popup-theme-header">
+                <span class="popup-theme-label">Theme</span>
+                <span class="popup-theme-badge" id="popup-theme-badge">Dark</span>
+              </div>
+              <div class="popup-theme-list" role="radiogroup" aria-label="Select Theme Mode">
+                <!-- Light Mode -->
+                <button type="button" class="theme-check-item" data-theme-choice="light" role="radio" aria-checked="false">
+                  <div class="theme-check-left">
+                    <svg class="theme-check-icon icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="5"></circle>
+                      <line x1="12" y1="1" x2="12" y2="3"></line>
+                      <line x1="12" y1="21" x2="12" y2="23"></line>
+                      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                      <line x1="1" y1="12" x2="3" y2="12"></line>
+                      <line x1="21" y1="12" x2="23" y2="12"></line>
+                      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <span>Light Mode</span>
+                  </div>
+                  <div class="theme-check-indicator">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="theme-check-svg">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </button>
+
+                <!-- Dark Mode -->
+                <button type="button" class="theme-check-item active" data-theme-choice="dark" role="radio" aria-checked="true">
+                  <div class="theme-check-left">
+                    <svg class="theme-check-icon icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <span>Dark Mode</span>
+                  </div>
+                  <div class="theme-check-indicator">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="theme-check-svg">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </button>
+
+                <!-- System (Auto) -->
+                <button type="button" class="theme-check-item" data-theme-choice="system" role="radio" aria-checked="false">
+                  <div class="theme-check-left">
+                    <svg class="theme-check-icon icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="8" y1="21" x2="16" y2="21"></line>
+                      <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <span>System (Auto)</span>
+                  </div>
+                  <div class="theme-check-indicator">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="theme-check-svg">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div class="popup-divider"></div>
+
+            <a href="#download" id="popup-go-to-download-btn" class="popup-item popup-item-download" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Go to Download</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="wrapper">
+    <section class="hero" id="about">
+      <div class="badge-pill">
+        <div class="badge-dot"></div>
+        <span>100% Offline • Zero Cloud Logging</span>
+      </div>
+
+      <h1 class="hero-title">
+        Confidential Text Protection for <span class="gradient-text">Schools, Educators</span> &amp; Privacy Pioneers
+      </h1>
+
+      <p class="hero-subtitle">
+        Hkode transforms sensitive grades, exams, academic notes, passwords, and personal messages into authenticated, tamper-proof ciphertexts. All cryptographic engines run directly on your device CPU with zero server data collection.
+      </p>
+
+      <!-- Quick Stats -->
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <div class="stat-title">AES-256-GCM</div>
+          <div class="stat-desc">Military-grade authenticated encryption with 128-bit authentication tag.</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </div>
+          <div class="stat-title">Zero Telemetry</div>
+          <div class="stat-desc">No trackers, no Firebase analytics, and no remote database logging.</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div class="stat-title">Passcode &amp; Recovery</div>
+          <div class="stat-desc">Salted 4-digit PIN, biometric authentication, and dual security questions.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Showcase: iOS Screenshot Side-by-Side Auto-Carousel -->
+    <section id="preview" class="showcase-section">
+      <div class="section-header text-center">
+        <div class="section-tag">App Experience • Live Showcase</div>
+        <h2 class="section-title">Confidentiality Built for Real Workflows</h2>
+        <p class="section-subtitle">
+          Swipe through live views of Hkode. Clean typography, military-grade client-side encryption, and biometric hardware safeguards engineered into an intuitive experience.
+        </p>
+      </div>
+
+      <div class="showcase-carousel-wrapper">
+        <!-- Navigation Controls -->
+        <button class="carousel-nav-btn prev" id="carousel-prev-btn" aria-label="Previous screenshot">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+
+        <div class="carousel-track-container" id="carousel-track-container">
+          <div class="carousel-track" id="carousel-track">
+            <!-- Slide 0 -->
+            <div class="carousel-slide active" data-index="0">
+              <div class="ios-device-frame">
+                <div class="ios-device-inner">
+                  <div class="ios-dynamic-island">
+                    <div class="ios-sensor"></div>
+                    <div class="ios-camera-lens"></div>
+                  </div>
+                  <div class="ios-glass-glare"></div>
+                  <!-- Dark Mode Screenshot -->
+                  <img src="https://hkode.linexware.net.ng/images/Screenshot1.png"
+                       alt="Hkode App Screenshot 1 - Splash Screen"
+                       class="ios-screenshot-img screenshot-dark"
+                       loading="eager"
+                       draggable="false">
+                  <!-- Light Mode Screenshot -->
+                  <img src="https://hkode.linexware.net.ng/images/Screenshot_lite1.png"
+                       alt="Hkode App Screenshot 1 - Splash Screen (Light Mode)"
+                       class="ios-screenshot-img screenshot-light"
+                       loading="eager"
+                       draggable="false">
+                  <div class="ios-home-indicator"></div>
+                </div>
+              </div>
+              <div class="slide-caption">
+                <h4>Splash Screen</h4>
+                <p>Branded launch &amp; offline cryptographic initialization</p>
+              </div>
+            </div>
+
+            <!-- Slide 1 -->
+            <div class="carousel-slide" data-index="1">
+              <div class="ios-device-frame">
+                <div class="ios-device-inner">
+                  <div class="ios-dynamic-island">
+                    <div class="ios-sensor"></div>
+                    <div class="ios-camera-lens"></div>
+                  </div>
+                  <div class="ios-glass-glare"></div>
+                  <!-- Dark Mode Screenshot -->
+                  <img src="https://hkode.linexware.net.ng/images/Screenshot2.png"
+                       alt="Hkode App Screenshot 2 - Dashboard &amp; Home Screen"
+                       class="ios-screenshot-img screenshot-dark"
+                       loading="eager"
+                       draggable="false">
+                  <!-- Light Mode Screenshot -->
+                  <img src="https://hkode.linexware.net.ng/images/Screenshot_lite2.png"
+                       alt="Hkode App Screenshot 2 - Dashboard &amp; Home Screen (Light Mode)"
+                       class="ios-screenshot-img screenshot-light"
+                       loading="eager"
+                       draggable="false">
+                  <div class="ios-home-indicator"></div>
+                </div>
+              </div>
+              <div class="slide-caption">
+                <h4>Dashboard &amp; Home Screen</h4>
+                <p>One-tap access to Encrypt, Decrypt &amp; Custom Code</p>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-slide" data-index="2">
+              <div class="ios-device-frame">
+                <div class="ios-device-inner">
+                  <div class="ios-dynamic-island">
+                    <div class="ios-sensor"></div>
+                    <div class="ios-camera-lens"></div>
+                  </div>
+                  <div class="ios-glass-glare"></div>
+                  <!-- Dark Mode Screenshot -->
+                  <img src="https://hkode.linexware.net.ng/images/Screenshot3.png"
+                       alt="Hkode App Screenshot 3 - Passcode &amp; Fingerprint Lock"
+                       class="ios-screenshot-img screenshot-dark"
+                       loading="eager"
+                       draggable="false">
+                  <!-- Light Mode Screenshot -->
+                  <img src="https://hkode.linexware.net.ng/images/Screenshot_lite3.png"
+                       alt="Hkode App Screenshot 3 - Passcode &amp; Fingerprint Lock (Light Mode)"
+                       class="ios-screenshot-img screenshot-light"
+                       loading="eager"
+                       draggable="false">
+                  <div class="ios-home-indicator"></div>
+                </div>
+              </div>
+              <div class="slide-caption">
+                <h4>Passcode &amp; Fingerprint Lock</h4>
+                <p>4-digit PIN security with biometric fingerprint button</p>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-slide" data-index="3">
+              <div class="ios-device-frame">
+                <div class="ios-device-inner">
+                  <div class="ios-dynamic-island">
+                    <div class="ios-sensor"></div>
+                    <div class="ios-camera-lens"></div>
+                  </div>
+                  <div class="ios-glass-glare"></div>
+                  <!-- Dark Mode Screenshot -->
+                  <img src="https://hkode.linexware.net.ng/images/Screenshot4.png"
+                       alt="Hkode App Screenshot 4 - Encrypted Message Result"
+                       class="ios-screenshot-img screenshot-dark"
+                       loading="eager"
+                       draggable="false">
+                  <!-- Light Mode Screenshot -->
+                  <img src="https://hkode.linexware.net.ng/images/Screenshot_lite4.png"
+                       alt="Hkode App Screenshot 4 - Encrypted Message Result (Light Mode)"
+                       class="ios-screenshot-img screenshot-light"
+                       loading="eager"
+                       draggable="false">
+                  <div class="ios-home-indicator"></div>
+                </div>
+              </div>
+              <div class="slide-caption">
+                <h4>Encrypted Message Result</h4>
+                <p>Your encrypted message is protected and ready to copy &amp; share</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-nav-btn next" id="carousel-next-btn" aria-label="Next screenshot">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <!-- Small progress dots at the bottom, not on top of the screenshots -->
+      <div class="carousel-dots-container" id="carousel-dots-container" role="tablist" aria-label="Screenshot navigation">
+        <button class="carousel-dot active" data-index="0" aria-label="Slide 1" role="tab" aria-selected="true"></button>
+        <button class="carousel-dot" data-index="1" aria-label="Slide 2" role="tab" aria-selected="false"></button>
+        <button class="carousel-dot" data-index="2" aria-label="Slide 3" role="tab" aria-selected="false"></button>
+        <button class="carousel-dot" data-index="3" aria-label="Slide 4" role="tab" aria-selected="false"></button>
+      </div>
+    </section>
+
+    <!-- Schools & Campus Listing Section -->
+    <section id="schools">
+      <div class="section-header">
+        <div class="section-tag">Schools &amp; Academic Institutions</div>
+        <h2 class="section-title">Why Schools &amp; Universities Rely on Hkode</h2>
+        <p class="section-subtitle">
+          Educational organizations handle tremendous amounts of sensitive personal, administrative, and testing data. Here is how Hkode protects academic privacy every day:
+        </p>
+      </div>
+
+      <div class="schools-grid">
+        <div class="school-card">
+          <div class="card-badge">Exams &amp; Tests</div>
+          <h3>Exam &amp; Quiz Question Secrecy</h3>
+          <p>
+            Teachers and professors can encrypt upcoming exam papers, answer keys, and grading rubrics before transmitting them across campus networks, preventing pre-exam question leaks.
+          </p>
+        </div>
+
+        <div class="school-card">
+          <div class="card-badge">Counseling &amp; Records</div>
+          <h3>Student Counseling &amp; Health Privacy</h3>
+          <p>
+            School counselors and medical advisors can safely store and share confidential counseling notes, accommodation plans, and wellness reports without leaving unencrypted records.
+          </p>
+        </div>
+
+        <div class="school-card">
+          <div class="card-badge">Academic Research</div>
+          <h3>Laboratory &amp; Research Protection</h3>
+          <p>
+            University researchers, graduate students, and lab directors can safeguard unpublished thesis datasets, proprietary algorithms, and patent filings against intellectual property theft.
+          </p>
+        </div>
+
+        <div class="school-card">
+          <div class="card-badge">Administrative Channels</div>
+          <h3>Confidential Parent &amp; Faculty Communication</h3>
+          <p>
+            Privately transmit student behavior logs, special education documentation, and disciplinary reports via SMS, WhatsApp, or email, knowing only the intended recipient can decipher the content.
+          </p>
+        </div>
+
+        <div class="school-card">
+          <div class="card-badge">Cyber Defense</div>
+          <h3>Total Immunity to Cloud Data Breaches</h3>
+          <p>
+            Because Hkode does not host or store any user ciphertexts on a central cloud server, school districts and campuses cannot suffer a catastrophic server-side data leak or ransomware breach.
+          </p>
+        </div>
+
+        <div class="school-card">
+          <div class="card-badge">Fieldwork &amp; Campus</div>
+          <h3>Operates Without Campus Internet</h3>
+          <p>
+            Functions completely offline in lecture halls, remote botanical field research, or computer labs with intermittent or monitored internet connectivity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Security Features -->
+    <section id="security">
+      <div class="section-header">
+        <div class="section-tag">Cryptographic Specs</div>
+        <h2 class="section-title">Built Upon Rigorous Security Principles</h2>
+        <p class="section-subtitle">
+          Everything designed to put full digital sovereignty back into your hands.
+        </p>
+      </div>
+
+      <div class="features-list">
+        <div class="feature-item">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            100,000 PBKDF2 Rounds
+          </h4>
+          <p>High-iteration key derivation with cryptographic salt to render brute-force and dictionary attacks computationally infeasible.</p>
+        </div>
+
+        <div class="feature-item">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon-cyan"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            Dual Recovery Questions
+          </h4>
+          <p>Mandatory two-question security recovery scheme enables self-sovereign passcode reset without relying on external SMS or email servers.</p>
+        </div>
+
+        <div class="feature-item">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon-blue"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Local Password Vault
+          </h4>
+          <p>Store pre-shared secret keys in sandboxed, encrypted on-device storage with one-tap autofill during encryption and decryption.</p>
+        </div>
+
+        <div class="feature-item">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon-primary"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            Custom Cipher Engine
+          </h4>
+          <p>Includes an offline substitution permutation engine alongside AES-GCM for lightweight offline text transformation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs">
+      <div class="section-header">
+        <div class="section-tag">Frequently Asked Questions</div>
+        <h2 class="section-title">Answers to Common Questions</h2>
+        <p class="section-subtitle">
+          Everything you need to know about Hkode security, school applications, and account recovery.
+        </p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item active">
+          <div class="faq-question">
+            <span>How does Hkode assist schools and educational institutions?</span>
+            <div class="faq-toggle-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            Hkode provides an uncompromised, zero-cloud encryption layer for teachers, professors, counselors, and students. It ensures exam questions, grading rubrics, counseling notes, and student records remain completely confidential, even when transmitted across public messaging apps, SMS, or unencrypted email.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Are my messages or secret keys stored on your servers?</span>
+            <div class="faq-toggle-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            No. Hkode operates on a 100% offline, zero-knowledge architecture. There is no central server, no remote database, and no cloud backup. All cryptography executes strictly inside your device’s local memory, making data breaches impossible.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What happens if I forget my 4-digit passcode?</span>
+            <div class="faq-toggle-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            When setting up a passcode, you mandatorily configure two personal security questions. If you ever forget your passcode, simply tap "Forgot Passcode?" on the lock screen, answer your two questions, and you will instantly unlock the app and be prompted to set a new passcode.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I use Hkode without Wi-Fi or cellular data?</span>
+            <div class="faq-toggle-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            Yes. Every feature of Hkode—including encryption, decryption, password vault access, and passcode verification—works completely offline without requiring any internet connection.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How does the recipient decrypt a message I send them?</span>
+            <div class="faq-toggle-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            The recipient simply opens Hkode, navigates to the Decrypt tab, pastes the ciphertext, and enters the pre-shared secret passphrase (or uses the Hkode default key). Decryption completes in milliseconds with full tamper-detection.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Download Section -->
+    <section class="download-section" id="download">
+      <div class="download-box">
+        <h2 class="download-title">Download Hkode Today</h2>
+        <p class="download-desc">
+          Get the standalone Android APK and experience sovereign, tamper-proof text encryption directly on your device.
+        </p>
+
+        <!-- Primary Download Button with Gradient & Black Text -->
+        <a href="https://hkode.linexware.net.ng/apk/hkode_v1.0.apk" id="main-download-btn" class="btn-download-app" download="hkode_v1.0.apk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download App</span>
+        </a>
+
+        <!-- Coming Soon Store Badges -->
+        <div class="store-badges">
+          <div class="store-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.609 1.814L13.792 12 3.61 22.186a1.95 1.95 0 0 1-.61-.914c-.09-.34-.14-.7-.14-1.072V3.8c0-.372.05-.732.14-1.072.12-.416.33-.746.61-.914zm11.238 11.238l2.585-2.585-11.45-6.52 8.865 9.105zm0 1.896l-8.865 9.105 11.45-6.52-2.585-2.585zm1.442-1.442l3.432 1.956c.92.524.92 1.38 0 1.904l-3.432 1.956-2.024-2.024 2.024-3.792z"/>
+            </svg>
+            <span class="store-name">Google Play Store</span>
+            <span class="pill-tag">Coming Soon</span>
+          </div>
+
+          <div class="store-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.99.6-2.64 1.36-.57.65-1.07 1.71-.93 2.73 1.01.08 2.03-.49 2.65-1.24z"/>
+            </svg>
+            <span class="store-name">iOS App Store</span>
+            <span class="pill-tag">Coming Soon</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrapper">
+      <p>&copy; 2026 Hkode. All rights reserved. Sovereign Text Encryption &bull; 100% Offline Promise.</p>
+    </div>
+  </footer>
+
+  <script>
+    // =========================================================================
+    // Theme Engine with 3-Choice Selection: Light, Dark, System (Auto)
+    // =========================================================================
+    const THEME_STORAGE_KEY = 'hkode_theme_mode';
+
+    function initThemeEngine() {
+      const darkModeQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+      const themeBadge = document.getElementById('popup-theme-badge');
+      const themeButtons = document.querySelectorAll('.theme-check-item');
+
+      function getSavedChoice() {
+        try {
+          const saved = localStorage.getItem(THEME_STORAGE_KEY);
+          if (saved === 'light' || saved === 'dark' || saved === 'system') return saved;
+        } catch (e) {}
+        return null;
+      }
+
+      function resolveSystemTheme() {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          return 'light';
+        }
+        return 'dark';
+      }
+
+      function setThemeChoice(choice, save = true) {
+        let resolvedTheme = choice;
+        if (choice === 'system') {
+          resolvedTheme = resolveSystemTheme();
+        }
+
+        // Immediately apply authoritative theme attribute
+        document.documentElement.setAttribute('data-theme', resolvedTheme);
+        document.documentElement.style.colorScheme = resolvedTheme;
+
+        if (save) {
+          try {
+            localStorage.setItem(THEME_STORAGE_KEY, choice);
+          } catch (e) {}
+        }
+
+        // Update popup badge label
+        if (themeBadge) {
+          if (choice === 'light') {
+            themeBadge.textContent = 'Light';
+          } else if (choice === 'dark') {
+            themeBadge.textContent = 'Dark';
+          } else {
+            themeBadge.textContent = 'System (' + (resolvedTheme === 'light' ? 'Light' : 'Dark') + ')';
+          }
+        }
+
+        // Update active check indicators on buttons
+        themeButtons.forEach(btn => {
+          const btnChoice = btn.getAttribute('data-theme-choice');
+          const isSelected = (btnChoice === choice);
+          btn.classList.toggle('active', isSelected);
+          btn.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+        });
+
+        // Update browser address bar / header theme-color
+        let metaTheme = document.querySelector('meta[name="theme-color"]');
+        if (!metaTheme) {
+          metaTheme = document.createElement('meta');
+          metaTheme.name = 'theme-color';
+          document.head.appendChild(metaTheme);
+        }
+        metaTheme.setAttribute('content', resolvedTheme === 'dark' ? '#0B1120' : '#F8FAFC');
+      }
+
+      // Initial Theme Application
+      const savedChoice = getSavedChoice() || 'dark';
+      setThemeChoice(savedChoice, false);
+
+      // Handle user click on any theme option
+      themeButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation(); // Keep popup menu open for instant feedback
+          const choice = btn.getAttribute('data-theme-choice');
+          if (choice) {
+            setThemeChoice(choice, true);
+          }
+        });
+      });
+
+      // Real-time device display mode listener (active if choice is 'system')
+      if (darkModeQuery) {
+        const handleDeviceThemeChange = () => {
+          const currentChoice = getSavedChoice() || 'dark';
+          if (currentChoice === 'system') {
+            setThemeChoice('system', false);
+          }
+        };
+
+        try {
+          if (darkModeQuery.addEventListener) {
+            darkModeQuery.addEventListener('change', handleDeviceThemeChange);
+          } else if (darkModeQuery.addListener) {
+            darkModeQuery.addListener(handleDeviceThemeChange);
+          }
+        } catch (err) {
+          console.warn('Theme listener error:', err);
+        }
+      }
+    }
+
+    // Run theme engine immediately to eliminate any flash
+    initThemeEngine();
+
+    // FAQ Accordion Interaction
+    document.querySelectorAll('.faq-question').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(other => {
+          other.classList.remove('active');
+        });
+        
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Android-style Small Pop-up Menu Controls
+    const menuToggleBtn = document.getElementById('menu-toggle-btn');
+    const popupMenu = document.getElementById('popup-menu');
+
+    function openPopupMenu() {
+      if (menuToggleBtn && popupMenu) {
+        menuToggleBtn.classList.add('active');
+        menuToggleBtn.setAttribute('aria-expanded', 'true');
+        popupMenu.classList.add('open');
+        popupMenu.setAttribute('aria-hidden', 'false');
+      }
+    }
+
+    function closePopupMenu() {
+      if (menuToggleBtn && popupMenu) {
+        menuToggleBtn.classList.remove('active');
+        menuToggleBtn.setAttribute('aria-expanded', 'false');
+        popupMenu.classList.remove('open');
+        popupMenu.setAttribute('aria-hidden', 'true');
+      }
+    }
+
+    if (menuToggleBtn) {
+      menuToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (popupMenu && popupMenu.classList.contains('open')) {
+          closePopupMenu();
+        } else {
+          openPopupMenu();
+        }
+      });
+    }
+
+    // Close popup menu on clicking outside
+    document.addEventListener('click', (e) => {
+      if (popupMenu && popupMenu.classList.contains('open')) {
+        if (!popupMenu.contains(e.target) && e.target !== menuToggleBtn && !menuToggleBtn.contains(e.target)) {
+          closePopupMenu();
+        }
+      }
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePopupMenu();
+      }
+    });
+
+    // Highlight download button with continuous glowing pulse ring without auto-triggering download
+    function highlightDownloadButton() {
+      const mainBtn = document.getElementById('main-download-btn');
+      if (mainBtn) {
+        mainBtn.classList.remove('pulse-highlight');
+        void mainBtn.offsetWidth; // Force DOM reflow to re-trigger pulse animation
+        mainBtn.classList.add('pulse-highlight');
+      }
+    }
+
+    // Stop glowing pulse when user interacts with the download button directly
+    const mainBtnElement = document.getElementById('main-download-btn');
+    if (mainBtnElement) {
+      mainBtnElement.addEventListener('click', () => {
+        mainBtnElement.classList.remove('pulse-highlight');
+      });
+      mainBtnElement.addEventListener('mouseenter', () => {
+        mainBtnElement.classList.remove('pulse-highlight');
+      });
+    }
+
+    // Smooth navigation scroll & popup menu close
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+
+        closePopupMenu();
+
+        if (href === '#' || href === '') return;
+
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          if (href === '#download') {
+            setTimeout(() => {
+              highlightDownloadButton();
+            }, 500);
+          }
+        }
+      });
+    });
+
+    // Automatically bind the top APK_DOWNLOAD_URL string to primary download button
+    function setupDownloadButtons() {
+      const downloadUrl = (typeof APK_DOWNLOAD_URL === 'string' && APK_DOWNLOAD_URL.trim() !== '')
+        ? APK_DOWNLOAD_URL.trim()
+        : 'https://hkode.linexware.net.ng/apk/hkode_v1.0.apk';
+
+      const mainBtn = document.getElementById('main-download-btn');
+      if (mainBtn) {
+        mainBtn.href = downloadUrl;
+        mainBtn.setAttribute('download', 'hkode_v1.0.apk');
+      }
+
+      // Nav CTA and popup download buttons are scroll anchors to #download
+      const navBtn = document.getElementById('nav-download-btn');
+      if (navBtn) {
+        navBtn.href = "#download";
+      }
+
+      const popupDownloadBtn = document.getElementById('popup-go-to-download-btn');
+      if (popupDownloadBtn) {
+        popupDownloadBtn.href = "#download";
+      }
+
+      document.querySelectorAll('[data-apk-download]').forEach(btn => {
+        btn.href = downloadUrl;
+      });
+    }
+
+    function checkLogoState() {
+      document.querySelectorAll('.brand-logo-img').forEach(img => {
+        if (img.complete) {
+          if (img.naturalWidth > 0) {
+            img.classList.add('loaded');
+          } else {
+            img.classList.add('error');
+            img.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    // =========================================================================
+    // iOS Screenshot Showcase Carousel Controller
+    // =========================================================================
+    function initShowcaseCarousel() {
+      const container = document.getElementById('carousel-track-container');
+      const track = document.getElementById('carousel-track');
+      const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+      const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+      const prevBtn = document.getElementById('carousel-prev-btn');
+      const nextBtn = document.getElementById('carousel-next-btn');
+
+      if (!container || !slides.length) return;
+
+      let currentIndex = 0;
+      let isManualScrolling = false;
+      let scrollTimeout = null;
+      let autoPlayInterval = null;
+      let isInteracting = false;
+      let isDragging = false;
+      let startX = 0;
+      let scrollLeftStart = 0;
+      let dragDistance = 0;
+
+      function updateActiveState(index, triggerBounce = true) {
+        if (index < 0 || index >= slides.length) return;
+        currentIndex = index;
+
+        slides.forEach((slide, idx) => {
+          const isActive = (idx === index);
+          slide.classList.toggle('active', isActive);
+          if (isActive && triggerBounce) {
+            slide.classList.remove('bouncing');
+            void slide.offsetWidth; // Force reflow to re-trigger bounce keyframe
+            slide.classList.add('bouncing');
+          } else if (!isActive) {
+            slide.classList.remove('bouncing');
+          }
+        });
+
+        dots.forEach((dot, idx) => {
+          const isActive = (idx === index);
+          dot.classList.toggle('active', isActive);
+          dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+      }
+
+      function scrollToSlide(index, triggerBounce = true, smooth = true) {
+        if (index < 0 || index >= slides.length) return;
+        const targetSlide = slides[index];
+        const containerWidth = container.clientWidth;
+        const slideWidth = targetSlide.clientWidth;
+        const targetScrollLeft = targetSlide.offsetLeft - (containerWidth - slideWidth) / 2;
+
+        isManualScrolling = true;
+        updateActiveState(index, triggerBounce);
+
+        container.scrollTo({
+          left: Math.max(0, targetScrollLeft),
+          behavior: smooth ? 'smooth' : 'auto'
+        });
+
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          isManualScrolling = false;
+        }, 550);
+      }
+
+      function getClosestSlideIndex() {
+        const containerCenter = container.scrollLeft + container.clientWidth / 2;
+        let closestIndex = 0;
+        let minDiff = Infinity;
+
+        slides.forEach((slide, idx) => {
+          const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+          const diff = Math.abs(containerCenter - slideCenter);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIndex = idx;
+          }
+        });
+
+        return closestIndex;
+      }
+
+      // Handle scroll events (natural touch swipe / drag)
+      let scrollDebounce = null;
+      container.addEventListener('scroll', () => {
+        if (isManualScrolling) return;
+
+        clearTimeout(scrollDebounce);
+        scrollDebounce = setTimeout(() => {
+          const closest = getClosestSlideIndex();
+          if (closest !== currentIndex) {
+            updateActiveState(closest, true);
+          }
+        }, 90);
+      }, { passive: true });
+
+      // Click on bottom progress dots
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', (e) => {
+          e.preventDefault();
+          scrollToSlide(idx, true, true);
+          resetAutoPlayTimer();
+        });
+      });
+
+      // Click on side inactive slides to center them
+      slides.forEach((slide, idx) => {
+        slide.addEventListener('click', () => {
+          if (idx !== currentIndex && !isDragging && Math.abs(dragDistance) < 6) {
+            scrollToSlide(idx, true, true);
+            resetAutoPlayTimer();
+          }
+        });
+      });
+
+      // Navigation arrow buttons
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+          scrollToSlide(prevIndex, true, true);
+          resetAutoPlayTimer();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const nextIndex = (currentIndex + 1) % slides.length;
+          scrollToSlide(nextIndex, true, true);
+          resetAutoPlayTimer();
+        });
+      }
+
+      // Auto-play timer (slides smoothly every 2 seconds)
+      function startAutoPlay() {
+        stopAutoPlay();
+        autoPlayInterval = setInterval(() => {
+          if (!isInteracting && !isDragging && !isManualScrolling) {
+            const next = (currentIndex + 1) % slides.length;
+            scrollToSlide(next, true, true);
+          }
+        }, 2000);
+      }
+
+      function stopAutoPlay() {
+        if (autoPlayInterval) {
+          clearInterval(autoPlayInterval);
+          autoPlayInterval = null;
+        }
+      }
+
+      function resetAutoPlayTimer() {
+        stopAutoPlay();
+        startAutoPlay();
+      }
+
+      // Pause on hover or touch
+      container.addEventListener('mouseenter', () => { isInteracting = true; });
+      container.addEventListener('mouseleave', () => {
+        isInteracting = false;
+        if (isDragging) finishDrag();
+      });
+
+      container.addEventListener('touchstart', () => {
+        isInteracting = true;
+        stopAutoPlay();
+      }, { passive: true });
+
+      container.addEventListener('touchend', () => {
+        isInteracting = false;
+        setTimeout(() => {
+          if (!isInteracting) startAutoPlay();
+        }, 2000);
+      }, { passive: true });
+
+      // Mouse drag scrolling on desktop
+      container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        dragDistance = 0;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeftStart = container.scrollLeft;
+        container.classList.add('is-dragging');
+        stopAutoPlay();
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX);
+        dragDistance = walk;
+        container.scrollLeft = scrollLeftStart - walk;
+      });
+
+      function finishDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+        container.classList.remove('is-dragging');
+        if (Math.abs(dragDistance) > 30) {
+          const closest = getClosestSlideIndex();
+          scrollToSlide(closest, true, true);
+        }
+        setTimeout(() => {
+          startAutoPlay();
+        }, 2000);
+      }
+
+      window.addEventListener('mouseup', finishDrag);
+
+      // Handle window resize dynamically to keep active slide centered
+      let resizeTimer = null;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          scrollToSlide(currentIndex, false, false);
+        }, 120);
+      });
+
+      // Initial alignment
+      setTimeout(() => {
+        scrollToSlide(0, true, false);
+        startAutoPlay();
+      }, 150);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        initThemeEngine();
+        setupDownloadButtons();
+        checkLogoState();
+        initShowcaseCarousel();
+      });
+    } else {
+      initThemeEngine();
+      setupDownloadButtons();
+      checkLogoState();
+      initShowcaseCarousel();
+    }
+  </script>
+</body>
+</html>

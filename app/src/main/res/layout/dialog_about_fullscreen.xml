@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/layout_about_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/app_background"
+	android:orientation="vertical">
+
+	<!-- Header Bar -->
+	<LinearLayout
+		android:id="@+id/header_about_dialog"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingStart="20dp"
+		android:paddingEnd="20dp"
+		android:paddingTop="16dp"
+		android:paddingBottom="12dp"
+		android:gravity="center_vertical"
+		android:orientation="horizontal">
+
+		<FrameLayout
+			android:id="@+id/btn_about_close"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:background="@drawable/bg_back_button"
+			android:clickable="true"
+			android:focusable="true">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_close"
+				app:tint="@color/icon_tint_primary"
+				android:contentDescription="Close" />
+		</FrameLayout>
+
+		<TextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_marginStart="14dp"
+			android:text="About Hkode"
+			android:textSize="18sp"
+			android:textColor="@color/text_primary"
+			android:textStyle="bold" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btn_about_done"
+			style="@style/Widget.MaterialComponents.Button.TextButton"
+			android:layout_width="wrap_content"
+			android:layout_height="38dp"
+			android:minHeight="0dp"
+			android:minWidth="0dp"
+			android:insetTop="0dp"
+			android:insetBottom="0dp"
+			app:elevation="0dp"
+			android:stateListAnimator="@null"
+			android:text="Done"
+			android:textColor="@color/colorPrimary"
+			android:textSize="14sp"
+			android:textStyle="bold" />
+	</LinearLayout>
+
+	<!-- Scrollable Rich Content -->
+	<androidx.core.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:fillViewport="true"
+		android:overScrollMode="never">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingStart="24dp"
+			android:paddingEnd="24dp"
+			android:paddingTop="12dp"
+			android:paddingBottom="40dp">
+
+			<!-- Hero App Badge -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:orientation="vertical"
+				android:paddingTop="12dp"
+				android:paddingBottom="20dp">
+
+				<ImageView
+					android:layout_width="84dp"
+					android:layout_height="84dp"
+					android:src="@drawable/logo_3"
+					android:scaleType="fitCenter"
+					android:contentDescription="Hkode Icon" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="14dp"
+					android:text="Hkode"
+					android:textSize="24sp"
+					android:textStyle="bold"
+					android:textColor="@color/text_primary" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="4dp"
+					android:text="Sovereign Message &amp; Text Encryption"
+					android:textSize="13sp"
+					android:textStyle="bold"
+					android:textColor="@color/colorPrimary" />
+
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:background="@drawable/bg_segmented_container"
+					android:paddingStart="12dp"
+					android:paddingEnd="12dp"
+					android:paddingTop="4dp"
+					android:paddingBottom="4dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Version 1.0 (Build 30) • Production Edition"
+						android:textSize="11sp"
+						android:textColor="@color/text_secondary"
+						android:textStyle="bold" />
+				</LinearLayout>
+			</LinearLayout>
+
+			<!-- Card: Overview & Mission -->
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="18dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="What is Hkode?"
+						android:textSize="15sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="Hkode is an uncompromising privacy instrument built to restore true message confidentiality. In an era where communication platforms, cloud providers, and transit networks routinely analyze, log, or index metadata, Hkode ensures that your raw text never leaves your custody in unencrypted form."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="Whether sharing sensitive coordinates, passwords, personal notes, or proprietary code, Hkode transforms plain language into authenticated, tamper-proof ciphertexts that can be safely transmitted over any channel — SMS, WhatsApp, Telegram, email, or social networks."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Card: Cryptographic Architecture -->
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="14dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="18dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Dual Cryptographic Engines"
+						android:textSize="15sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="• AES-256-GCM (Authenticated Encryption)\nHkode implements Galois/Counter Mode with 256-bit symmetric keys. GCM provides both high-throughput confidentiality and cryptographic integrity verification. Each ciphertext carries its own 128-bit authentication tag; if even a single character is modified or corrupted in transit, decryption immediately aborts with an authentication failure."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="10dp"
+						android:text="• PBKDF2 Key Derivation (100,000 Rounds)\nWhen you specify a passphrase, Hkode does not use it directly as a raw key. It passes the secret through 100,000 iterations of PBKDF2-HMAC-SHA256 along with a cryptographically secure 16-byte random salt. This deliberately intensifies the computational cost of cracking, defeating GPU-accelerated rainbow table and dictionary attacks."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="10dp"
+						android:text="• Native Custom Substitution Engine\nFor rapid, lightweight scrambling, Hkode features a custom polyalphabetic permutation cipher engine. This allows custom alphabet mapping and transposition for offline, low-overhead scenarios."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Card: Security & Biometrics -->
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="14dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="18dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Security &amp; Hardware Biometrics"
+						android:textSize="15sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="• 4-Digit Salted PIN Protection\nYour application passcode is hashed using a unique salt stored in private app storage. No plain text representation of your PIN is ever saved."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="• Biometric Unlock (Fingerprint / Face)\nIntegrated with Android BiometricPrompt and Android Keystore. Hardware-backed cryptographic keys authenticate the user without exposing credentials to user-space memory."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="• Configurable Auto-Lock Timers\nChoose between immediate lock (app locks the millisecond you switch away) or a 60-second background grace window for comfortable multitasking without sacrificing protection."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Card: Zero-Knowledge Commitment -->
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="14dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="18dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Zero-Knowledge &amp; Privacy Pledge"
+						android:textSize="15sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="1. Zero Cloud Logging: No logs of your plaintext, passwords, or encrypted outputs are ever transmitted to any central database or developer server.\n2. Zero Analytics &amp; Trackers: No Google Firebase Analytics, Facebook SDKs, telemetry daemons, or user profiling tools.\n3. Completely Offline Capable: All cryptographic engines operate fully offline on your device's CPU."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Card: Secret Key Vault -->
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="14dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="18dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Encrypted Local Key Vault"
+						android:textSize="15sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="Hkode includes a local key vault for storing pre-shared secret keys. Keys are saved in sandboxed app-private storage and can be quickly autofilled into encryption and decryption fields with a single tap, removing the friction of manual re-typing while maintaining high entropy passwords."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Card: Standards & Credits -->
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="14dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="18dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Standards &amp; Engineering"
+						android:textSize="15sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="Built with modern Android standards: Kotlin Coroutines, Jetpack Architecture Components, Material Design 3, and OpenSSL/BouncyCastle crypto primitives.\n\nCrafted with utmost care for privacy, security, and digital sovereignty."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
+</LinearLayout>

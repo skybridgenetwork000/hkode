@@ -182,7 +182,9 @@ object SketchwareUtil {
 
     @JvmStatic
     fun showMessage(context: Context, s: String) {
-        Toast.makeText(context, s, Toast.LENGTH_SHORT).show()
+        if (context is Activity) {
+            com.hkode.h3nrican3.app.CustomToast.showInfo(context, "Notice", s)
+        }
     }
 
     @JvmStatic

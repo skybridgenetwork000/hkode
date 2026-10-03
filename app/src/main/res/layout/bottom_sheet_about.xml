@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/bg_bottom_sheet"
+	android:orientation="vertical">
+
+	<!-- Top Drag Handle -->
+	<View
+		android:layout_width="44dp"
+		android:layout_height="5dp"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="12dp"
+		android:background="@drawable/bg_drag_handle" />
+
+	<!-- Header Bar -->
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingStart="24dp"
+		android:paddingEnd="20dp"
+		android:paddingTop="16dp"
+		android:paddingBottom="12dp"
+		android:gravity="center_vertical"
+		android:orientation="horizontal">
+
+		<TextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="About Hkode"
+			android:textSize="20sp"
+			android:textColor="@color/text_primary"
+			android:textStyle="bold" />
+
+		<FrameLayout
+			android:id="@+id/btn_about_close"
+			android:layout_width="36dp"
+			android:layout_height="36dp"
+			android:background="@drawable/bg_back_button"
+			android:clickable="true"
+			android:focusable="true">
+
+			<ImageView
+				android:layout_width="18dp"
+				android:layout_height="18dp"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_close"
+				app:tint="@color/icon_tint_primary"
+				android:contentDescription="Close" />
+		</FrameLayout>
+	</LinearLayout>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/card_stroke" />
+
+	<!-- Continuous Plain Text Content -->
+	<androidx.core.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:fillViewport="true"
+		android:overScrollMode="never">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingStart="24dp"
+			android:paddingEnd="24dp"
+			android:paddingTop="18dp"
+			android:paddingBottom="48dp">
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="Hkode • Version 1.0 (Build 30) • Sovereign Edition"
+				android:textSize="12sp"
+				android:textStyle="bold"
+				android:textColor="@color/colorPrimary" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:text="Overview &amp; Purpose"
+				android:textSize="15sp"
+				android:textStyle="bold"
+				android:textColor="@color/text_primary" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="6dp"
+				android:text="Hkode is an uncompromising text protection tool built to guarantee complete message confidentiality. Modern messaging apps and network relays log, inspect, and analyze communications. Hkode ensures plain text is transformed into authenticated, tamper-proof ciphertexts directly on your device before transmission."
+				android:textSize="13sp"
+				android:textColor="@color/text_secondary"
+				android:lineSpacingExtra="5dp" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="Cryptographic Specifications"
+				android:textSize="15sp"
+				android:textStyle="bold"
+				android:textColor="@color/text_primary" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="6dp"
+				android:text="• AES-256-GCM (Galois/Counter Mode): Provides authenticated symmetric encryption with 256-bit keys and 128-bit integrity tags. Any tampering or message alteration causes immediate decryption rejection.\n\n• PBKDF2-HMAC-SHA256: User passphrases undergo 100,000 iterations of key derivation with 16-byte cryptographically secure random salts, rendering brute-force and dictionary attacks computationally infeasible.\n\n• Native Custom Transposition Engine: A lightweight polyalphabetic substitution cipher for rapid offline scrambles."
+				android:textSize="13sp"
+				android:textColor="@color/text_secondary"
+				android:lineSpacingExtra="5dp" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="Security &amp; Hardware Biometrics"
+				android:textSize="15sp"
+				android:textStyle="bold"
+				android:textColor="@color/text_primary" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="6dp"
+				android:text="Hkode secures access using a salted 4-digit PIN stored securely in private app storage. On compatible devices, hardware biometric authentication (Fingerprint) provides instant access without exposing keys. Users can configure the application auto-lock to engage immediately or after a 60-second grace window."
+				android:textSize="13sp"
+				android:textColor="@color/text_secondary"
+				android:lineSpacingExtra="5dp" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="Zero-Knowledge Privacy Pledge"
+				android:textSize="15sp"
+				android:textStyle="bold"
+				android:textColor="@color/text_primary" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="6dp"
+				android:text="Hkode operates completely offline without network analytics, advertising trackers, or external logging. No records of your messages, passphrases, or encryption activity are ever sent off your device."
+				android:textSize="13sp"
+				android:textColor="@color/text_secondary"
+				android:lineSpacingExtra="5dp" />
+
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

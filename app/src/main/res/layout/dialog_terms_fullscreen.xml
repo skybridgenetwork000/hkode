@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/layout_terms_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/app_background"
+	android:orientation="vertical">
+
+	<!-- Header Bar -->
+	<LinearLayout
+		android:id="@+id/header_terms_dialog"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingStart="20dp"
+		android:paddingEnd="20dp"
+		android:paddingTop="16dp"
+		android:paddingBottom="12dp"
+		android:gravity="center_vertical"
+		android:orientation="horizontal">
+
+		<FrameLayout
+			android:id="@+id/btn_terms_close"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:background="@drawable/bg_back_button"
+			android:clickable="true"
+			android:focusable="true">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_close"
+				app:tint="@color/icon_tint_primary"
+				android:contentDescription="Close" />
+		</FrameLayout>
+
+		<TextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_marginStart="14dp"
+			android:text="Terms &amp; Conditions"
+			android:textSize="18sp"
+			android:textColor="@color/text_primary"
+			android:textStyle="bold" />
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btn_terms_done"
+			style="@style/Widget.MaterialComponents.Button.TextButton"
+			android:layout_width="wrap_content"
+			android:layout_height="38dp"
+			android:minHeight="0dp"
+			android:minWidth="0dp"
+			android:insetTop="0dp"
+			android:insetBottom="0dp"
+			app:elevation="0dp"
+			android:stateListAnimator="@null"
+			android:text="Accept"
+			android:textColor="@color/colorPrimary"
+			android:textSize="14sp"
+			android:textStyle="bold" />
+	</LinearLayout>
+
+	<!-- Scrollable Rich Content -->
+	<androidx.core.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:fillViewport="true"
+		android:overScrollMode="never">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingStart="24dp"
+			android:paddingEnd="24dp"
+			android:paddingTop="12dp"
+			android:paddingBottom="40dp">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Effective Date: September 2026 • Version 1.0"
+				android:textSize="12sp"
+				android:textColor="@color/text_muted"
+				android:textStyle="bold" />
+
+			<!-- Card 1: Acceptance -->
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="12dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="18dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="1. Acceptance &amp; Nature of Service"
+						android:textSize="15sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="By downloading, installing, or executing the Hkode software application, you confirm your unconditional acceptance of these Terms and Conditions. Hkode is a local cryptography utility designed to provide client-side text obfuscation, authenticated AES-256-GCM encryption, and local key management."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Card 2: User Responsibility & Key Custody -->
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="14dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="18dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="2. Sole Custody of Cryptographic Keys"
+						android:textSize="15sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="Hkode operates under a strict Zero-Knowledge paradigm. There are no master keys, no recovery escrow mechanisms, and no developer bypasses.\n\nYou acknowledge that if you lose, forget, or fail to record a passphrase or key used to encrypt a message, it is mathematically impossible for anyone — including Hkode developers — to recover or reconstruct your original plaintext. You bear 100% responsibility for the safety and backup of your secret keys."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Card 3: Permissible Use -->
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="14dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="18dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="3. Permissible &amp; Lawful Use"
+						android:textSize="15sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="You agree to use Hkode strictly in compliance with all relevant local, national, and international laws, regulations, and statutes. You must not use Hkode to orchestrate harm, unlawfully distribute malicious payloads, engage in cyber extortion, or infringe on third-party intellectual property or human rights."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Card 4: Integrity & Non-Warranty -->
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="14dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="18dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="4. Disclaimer of Warranties"
+						android:textSize="15sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="Hkode is provided on an 'AS-IS' and 'AS-AVAILABLE' basis without warranties of any kind, whether express, statutory, or implied. While the cryptographic implementations adhere to established industry standards (such as NIST SP 800-38D for GCM mode and RFC 2898 for PBKDF2), the authors do not guarantee uninterrupted execution or that third-party platforms transmitting ciphertext will preserve character formatting."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<!-- Card 5: Local Privacy & No Surveillance -->
+			<com.google.android.material.card.MaterialCardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="14dp"
+				app:cardCornerRadius="16dp"
+				app:cardElevation="0dp"
+				app:strokeWidth="1dp"
+				app:strokeColor="@color/card_stroke"
+				app:cardBackgroundColor="@color/card_background">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:padding="18dp">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="5. Local Storage &amp; Zero Surveillance"
+						android:textSize="15sp"
+						android:textStyle="bold"
+						android:textColor="@color/text_primary" />
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="Hkode does not track, monetize, profile, or sell user interactions. Any data stored locally (such as saved history or secret keys) is stored strictly on device in application-private sandbox directories. You may purge all application data at any time via Settings."
+						android:textSize="13sp"
+						android:textColor="@color/text_secondary"
+						android:lineSpacingExtra="4dp" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
+</LinearLayout>
